@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block title_block %}
+    Sign Up
+{% endblock title_block %}
+
+{% block body_block %}
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <input type="submit" value="Sign Up">
+    </form>
+{% endblock body_block %}

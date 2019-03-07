@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title_block %}
+    Home Page
+{% endblock title_block %}
+
+{% block body_block %}
+    {% for person in persons %}
+        {% if person.avatar.url != "" %}
+            <img src="{{ person.avatar.url }}" alt="image">
+        {% endif %}
+    {% endfor %}
+{% endblock body_block %}
