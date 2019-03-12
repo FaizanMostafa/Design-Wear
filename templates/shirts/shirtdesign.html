@@ -1,2 +1,26 @@
 {% extends 'base.html' %}
 
+{% block title %}
+    Design
+{% endblock title %}
+
+
+{% block content %}
+    Design Your Shirt Here...
+    <div style="height:500px; width:400px;">
+        <img style="position:absolute; display:inline; width:300px; height:auto; margin-left:-150px; z-index:0;" src="{{ base.l_shoulder.url }}">
+        <img style="position:absolute; display:inline; width:300px; height:auto; margin-left:-150px; z-index:0;" src="{{ base.r_shoulder.url }}">
+        <img style="position:absolute; display:inline; width:300px; height:auto; margin-left:-150px; z-index:0;" src="{{ base.l_front.url }}">
+        <img style="position:absolute; display:inline; width:300px; height:auto; margin-left:-150px; z-index:0;" src="{{ base.r_front.url }}">
+        <img style="position:absolute; display:inline; width:300px; height:auto; margin-left:-150px; z-index:0;" src="{{ base.l_collar_base.url }}">
+        <img style="position:absolute; display:inline; width:300px; height:auto; margin-left:-150px; z-index:0;" src="{{ base.r_collar_base.url }}">
+        <img style="position:absolute; display:inline; width:300px; height:auto; margin-left:-150px; z-index:0;" src="{{ base.yoke_top.url }}">
+        <img style="position:absolute; display:inline; width:300px; height:auto; margin-left:-150px; z-index:0;" src="{{ base.yoke_bottom.url }}">
+        <img style="position:absolute; display:inline; width:300px; height:auto; margin-left:-150px; z-index:0;" src="{{ base.placket.url }}">
+        <img style="position:absolute; display:inline; width:300px; height:auto; margin-left:-150px; z-index:0;" src="{{ collar.inner.url }}">
+        <img style="position:absolute; display:inline; width:300px; height:auto; margin-left:-150px; z-index:0;" src="{{ collar.upper.url }}">
+        <img style="position:absolute; display:inline; width:300px; height:auto; margin-left:-150px; z-index:0;" src="{{ collar.outer_r.url }}">
+        <img style="position:absolute; display:inline; width:300px; height:auto; margin-left:-150px; z-index:0;" src="{{ collar.outer_l.url }}">
+        <img style="position:absolute; display:inline; width:300px; height:auto; margin-left:-150px; z-index:0;" src="{{ collar.button.url }}">
+    </div>
+{% endblock content %}
