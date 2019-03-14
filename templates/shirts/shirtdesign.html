@@ -6,21 +6,39 @@
 
 
 {% block content %}
-    Design Your Shirt Here...
-    <div style="height:500px; width:400px;">
-        <img style="position:absolute; display:inline; width:300px; height:auto; margin-left:-150px; z-index:0;" src="{{ base.l_shoulder.url }}">
-        <img style="position:absolute; display:inline; width:300px; height:auto; margin-left:-150px; z-index:0;" src="{{ base.r_shoulder.url }}">
-        <img style="position:absolute; display:inline; width:300px; height:auto; margin-left:-150px; z-index:0;" src="{{ base.l_front.url }}">
-        <img style="position:absolute; display:inline; width:300px; height:auto; margin-left:-150px; z-index:0;" src="{{ base.r_front.url }}">
-        <img style="position:absolute; display:inline; width:300px; height:auto; margin-left:-150px; z-index:0;" src="{{ base.l_collar_base.url }}">
-        <img style="position:absolute; display:inline; width:300px; height:auto; margin-left:-150px; z-index:0;" src="{{ base.r_collar_base.url }}">
-        <img style="position:absolute; display:inline; width:300px; height:auto; margin-left:-150px; z-index:0;" src="{{ base.yoke_top.url }}">
-        <img style="position:absolute; display:inline; width:300px; height:auto; margin-left:-150px; z-index:0;" src="{{ base.yoke_bottom.url }}">
-        <img style="position:absolute; display:inline; width:300px; height:auto; margin-left:-150px; z-index:0;" src="{{ base.placket.url }}">
-        <img style="position:absolute; display:inline; width:300px; height:auto; margin-left:-150px; z-index:0;" src="{{ collar.inner.url }}">
-        <img style="position:absolute; display:inline; width:300px; height:auto; margin-left:-150px; z-index:0;" src="{{ collar.upper.url }}">
-        <img style="position:absolute; display:inline; width:300px; height:auto; margin-left:-150px; z-index:0;" src="{{ collar.outer_r.url }}">
-        <img style="position:absolute; display:inline; width:300px; height:auto; margin-left:-150px; z-index:0;" src="{{ collar.outer_l.url }}">
-        <img style="position:absolute; display:inline; width:300px; height:auto; margin-left:-150px; z-index:0;" src="{{ collar.button.url }}">
+    <div id="listContainer" style="display: inline;">
+        <div id="content">
+            <h2>Customize Your Shirt's Fabric</h2>
+            <ul class="fli">
+                <li class="fli" OnClick=ShowBaseFabrics()>BASE FABRIC</li>
+                <li class="fli">OUTER COLLAR</li>
+                <li class="fli">INNER COLLAR</li>
+                <li class="fli">OUTER CUFFS</li>
+                <li class="fli">INNER CUFFS</li>
+                <li class="fli">POCKET</li>
+                <li class="fli">INNER PLACKET</li>
+            </ul>
+        </div>
     </div>
+    <div style="height:500px; width:400px; display:inline;">
+        <img id="left-shoulder" class="img-container" src="{{ base.l_shoulder.url }}">
+        <img id="right-shoulder" class="img-container" src="{{ base.r_shoulder.url }}">
+        <img id="left-front" class="img-container" src="{{ base.l_front.url }}">
+        <img id="right-front" class="img-container" src="{{ base.r_front.url }}">
+        <img id="left-collar-base" class="img-container" src="{{ base.l_collar_base.url }}">
+        <img id="right-collar-base" class="img-container" src="{{ base.r_collar_base.url }}">
+        <img id="yoke-top" class="img-container" src="{{ base.yoke_top.url }}">
+        <img id="yoke-bottom" class="img-container" src="{{ base.yoke_bottom.url }}">
+        <img id="placket" class="img-container" src="{{ base.placket.url }}">
+        <img id="inner-collar" class="img-container" src="{{ collar.inner.url }}">
+        <img id="upper-collar" class="img-container" src="{{ collar.upper.url }}">
+        <img id="outer-right-collar" class="img-container" src="{{ collar.outer_r.url }}">
+        <img id="outer-left-collar" class="img-container" src="{{ collar.outer_l.url }}">
+        <img id="inner-cuff" class="img-container" src="{{ cuff.inner.url }}">
+        <img id="outer-top-cuff" class="img-container" src="{{ cuff.outer_top.url }}">
+        <img id="outer-bottom-cuff" class="img-container" src="{{ cuff.outer_bottom.url }}">
+    </div>
+    <script>
+        var GetPatternUrl = "{% url 'shirts:get_pattern' %}"
+    </script>
 {% endblock content %}
