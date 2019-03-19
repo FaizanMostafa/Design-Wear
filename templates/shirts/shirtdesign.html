@@ -11,34 +11,40 @@
             <h2>Customize Your Shirt's Fabric</h2>
             <ul class="fli">
                 <li class="fli" OnClick=ShowBaseFabrics()>BASE FABRIC</li>
-                <li class="fli">OUTER COLLAR</li>
-                <li class="fli">INNER COLLAR</li>
-                <li class="fli">OUTER CUFFS</li>
-                <li class="fli">INNER CUFFS</li>
+                <li class="fli" OnClick=ShowOuterCollar()>OUTER COLLAR</li>
+                <li class="fli" OnClick=ShowInnerCollar()>INNER COLLAR</li>
+                <li class="fli" OnClick=ShowOuterCuff()>OUTER CUFFS</li>
+                <li class="fli" OnClick=ShowInnerCuff()>INNER CUFFS</li>
                 <li class="fli">POCKET</li>
-                <li class="fli">INNER PLACKET</li>
+                <li class="fli" OnClick=ShowInnerPlacket()>INNER PLACKET</li>
             </ul>
         </div>
     </div>
     <div style="height:500px; width:400px; display:inline;">
+        <img id="background" class="img-container" src="{{ background.background.url }}">
         <img id="left-shoulder" class="img-container" src="{{ base.l_shoulder.url }}">
         <img id="right-shoulder" class="img-container" src="{{ base.r_shoulder.url }}">
         <img id="left-front" class="img-container" src="{{ base.l_front.url }}">
         <img id="right-front" class="img-container" src="{{ base.r_front.url }}">
-        <img id="left-collar-base" class="img-container" src="{{ base.l_collar_base.url }}">
-        <img id="right-collar-base" class="img-container" src="{{ base.r_collar_base.url }}">
-        <img id="yoke-top" class="img-container" src="{{ base.yoke_top.url }}">
-        <img id="yoke-bottom" class="img-container" src="{{ base.yoke_bottom.url }}">
-        <img id="placket" class="img-container" src="{{ base.placket.url }}">
-        <img id="inner-collar" class="img-container" src="{{ collar.inner.url }}">
-        <img id="upper-collar" class="img-container" src="{{ collar.upper.url }}">
-        <img id="outer-right-collar" class="img-container" src="{{ collar.outer_r.url }}">
-        <img id="outer-left-collar" class="img-container" src="{{ collar.outer_l.url }}">
-        <img id="inner-cuff" class="img-container" src="{{ cuff.inner.url }}">
-        <img id="outer-top-cuff" class="img-container" src="{{ cuff.outer_top.url }}">
-        <img id="outer-bottom-cuff" class="img-container" src="{{ cuff.outer_bottom.url }}">
+        <img id="left-collar-base" class="img-container" src="{{ outer_collar.l_base.url }}">
+        <img id="right-collar-base" class="img-container" src="{{ outer_collar.r_base.url }}">
+        <img id="yoke-top" class="img-container" src="{{ yoke.top.url }}">
+        <img id="yoke-bottom" class="img-container" src="{{ yoke.bottom.url }}">
+        <img id="inner-placket" class="img-container" src="{{ inner_placket.inner.url }}">
+        <img id="outer-placket" class="img-container" src="{{ outer_placket.outer.url }}">
+        <img id="inner-collar" class="img-container" src="{{ inner_collar.inner.url }}">
+        <img id="upper-collar" class="img-container" src="{{ outer_collar.upper.url }}">
+        <img id="outer-right-collar" class="img-container" src="{{ outer_collar.outer_r.url }}">
+        <img id="outer-left-collar" class="img-container" src="{{ outer_collar.outer_l.url }}">
+        <img id="inner-cuff" class="img-container" src="{{ inner_cuff.inner.url }}">
+        <img id="outer-top-cuff" class="img-container" src="{{ outer_cuff.top.url }}">
+        <img id="outer-bottom-cuff" class="img-container" src="{{ outer_cuff.bottom.url }}">
     </div>
     <script>
-        var GetPatternUrl = "{% url 'shirts:get_pattern' %}"
+        var GetPatternUrl = "{% url 'shirts:get_base_pattern' %}"
+        var GetOuterCollarUrl = "{% url 'shirts:get_outer_collar' %}"
+        var GetInnerCollarUrl = "{% url 'shirts:get_inner_collar' %}"
+        var GetInnerPlacketUrl = "{% url 'shirts:get_inner_placket' %}"
+        var GetOuterPlacketUrl = "{% url 'shirts:get_outer_placket' %}"
     </script>
 {% endblock content %}

@@ -1,0 +1,46 @@
+ul.fli {
+    margin: auto;
+    padding: 0px;
+}
+
+.img-container {
+    position: absolute;
+    display: inline-block;
+    width: 450px;
+    height: auto;
+    z-index: 0;
+    /* margin-left: -150px; */
+}
+
+#content {
+    width: 500px;
+    height: 500px;
+    background-color: orange;
+    display: inline-block;
+    /* margin-right: 170px; */
+    /* float: left; */
+}
+
+h2 {
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+}
+
+li.fli {
+    height: 55px;
+    text-align: center;
+    line-height: 55px;
+    cursor: default;
+}
+
+div {
+    cursor: default;
+}
+
+li:hover {
+    color: white;
+    background-color: cornflowerblue;
+}
