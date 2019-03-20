@@ -1,7 +1,7 @@
 var left_shoulder, right_shoulder, left_front, right_front, left_collar_base, right_collar_base;
 var yoke_top, yoke_bottom, inner_placket, outer_placket, inner_collar, upper_collar, outer_right_collar, outer_left_collar, inner_cuff, outer_top_cuff, outer_bottom_cuff;
-var tempInnerPlacketPattern, tempBasePattern, tempOuterCollarPattern, tempCollarDesign, tempInnerCollarPattern, temOuterPlacketPattern;
-var innerPlacketPattern="Bp1", basePattern="Bp1", outerCollarPattern="Bp1", collarDesign="RR", innerCollarPattern="Bp1", outerPlacketPattern="Bp1";
+var tempCuffDesign, tempOuterCuffPattern, tempInnerCuffPattern, tempInnerPlacketPattern, tempBasePattern, tempOuterCollarPattern, tempCollarDesign, tempInnerCollarPattern, temOuterPlacketPattern;
+var cuffDesign="RR", outerCuffPattern="Bp1", innerCuffPattern="Bp1", innerPlacketPattern="Bp1", basePattern="Bp1", outerCollarPattern="Bp1", collarDesign="RR", innerCollarPattern="Bp1", outerPlacketPattern="Bp1";
 
 function preserveDesignsPatterns() {
     tempBasePattern = basePattern;
@@ -10,6 +10,9 @@ function preserveDesignsPatterns() {
     tempInnerCollarPattern = innerCollarPattern;
     temOuterPlacketPattern = outerPlacketPattern;
     tempInnerPlacketPattern = innerPlacketPattern;
+    tempCuffDesign = cuffDesign;
+    tempOuterCuffPattern = outerCuffPattern;
+    tempInnerCuffPattern = innerCuffPattern;
 }
 
 function resetDesignsPatterns() {
@@ -19,6 +22,9 @@ function resetDesignsPatterns() {
     innerCollarPattern = tempInnerCollarPattern;
     outerPlacketPattern = temOuterPlacketPattern;
     innerPlacketPattern = tempInnerPlacketPattern;
+    cuffDesign = tempCuffDesign;
+    outerCuffPattern = tempOuterCuffPattern;
+    innerCuffPattern = tempInnerCuffPattern;
 }
 
 function preserveImages() {

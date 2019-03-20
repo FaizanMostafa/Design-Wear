@@ -10,4 +10,5 @@ urlpatterns = [
     path('getinnercollar/', views.get_inner_collar, name='get_inner_collar'),
     path('getouterplacket/', views.get_outer_placket, name='get_outer_placket'),
     path('getinnerplacket/', views.get_inner_placket, name='get_inner_placket'),
+    path('getouterfoldedcuff/', views.get_outer_folded_cuff, name='get_outer_folded_cuff'),
 ]

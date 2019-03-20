@@ -8,6 +8,9 @@ function loadPattern(ev) {
         'collar_catagory': collarDesign,
         'outer_collar_pattern': outerCollarPattern,
         'inner_collar_pattern': innerCollarPattern,
+        'cuff_catagory': cuffDesign,
+        'outer_cuff_pattern': outerCuffPattern,
+        'inner_cuff_pattern': innerCuffPattern,
         // csrfmiddlewaretoken: "$('input[name=csrfmiddlewaretoken]').val()",
         },
         dataType: 'json',
@@ -30,6 +33,8 @@ function loadPattern(ev) {
            document.getElementById("outer-top-cuff").src = data.outer_top_cuff;
            document.getElementById("outer-bottom-cuff").src = data.outer_bottom_cuff;
            basePattern = data.base_pattern;
+           innerCollarPattern = data.inner_collar_pattern;
+           outerCollarPattern = data.outer_collar_pattern;
         }
     });
 }
@@ -75,12 +80,14 @@ function loadInnerCollar(ev) {
 }
 
 function loadOuterPlacket() {
-    store = window.localStorage
     $.ajax({
         type: 'GET',
         url: GetOuterPlacketUrl,
         data: {
         'fabric': basePattern,
+        'inner_collar_pattern': innerCollarPattern,
+        'outer_collar_pattern': outerCollarPattern,
+        'collar_catagory': collarDesign,
         // csrfmiddlewaretoken: "$('input[name=csrfmiddlewaretoken]').val()",
         },
         dataType: 'json',
@@ -110,6 +117,26 @@ function loadInnerPlacket(ev) {
         success: function (data) {
            document.getElementById("inner-placket").src = data.inner_placket;
            innerPlacketPattern = data.inner_placket_pattern;
+        }
+    });
+}
+
+function loadOuterFoldedCuff(ev) {
+    $.ajax({
+        type: 'GET',
+        url: GetOuterFoldedCuffUrl,
+        data: {
+        'catagory': cuffDesign,
+        'base_pattern': basePattern,
+        'inner_cuff_pattern': innerCuffPattern,
+        'outer_cuff_pattern': outerCuffPattern,
+        // csrfmiddlewaretoken: "$('input[name=csrfmiddlewaretoken]').val()",
+        },
+        dataType: 'json',
+        success: function (data) {
+           document.getElementById("inner-cuff").src = data.inner_cuff;
+           document.getElementById("outer-top-cuff").src = data.outer_top_cuff;
+           document.getElementById("outer-bottom-cuff").src = data.outer_bottom_cuff;
         }
     });
 }
