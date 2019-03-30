@@ -32,9 +32,23 @@ function loadPattern(ev) {
            document.getElementById("inner-cuff").src = data.inner_cuff;
            document.getElementById("outer-top-cuff").src = data.outer_top_cuff;
            document.getElementById("outer-bottom-cuff").src = data.outer_bottom_cuff;
+           console.log("Ajax Request");
+           console.log(basePattern);
+           console.log(outerCollarPattern);
+           console.log(innerCollarPattern);
+           console.log(outerCuffPattern);
+           console.log(innerCuffPattern);
            basePattern = data.base_pattern;
            innerCollarPattern = data.inner_collar_pattern;
            outerCollarPattern = data.outer_collar_pattern;
+           outerCuffPattern = data.outer_cuff_pattern;
+           innerCuffPattern = data.inner_cuff_pattern;
+           console.log("Ajax Response");
+           console.log(data.base_pattern);
+           console.log(data.outer_collar_pattern);
+           console.log(data.inner_collar_pattern);
+           console.log(data.outer_cuff_pattern);
+           console.log(data.inner_cuff_pattern);
         }
     });
 }
@@ -137,6 +151,59 @@ function loadOuterFoldedCuff(ev) {
            document.getElementById("inner-cuff").src = data.inner_cuff;
            document.getElementById("outer-top-cuff").src = data.outer_top_cuff;
            document.getElementById("outer-bottom-cuff").src = data.outer_bottom_cuff;
+        }
+    });
+}
+
+function loadOuterCuff(ev) {
+    $.ajax({
+        type: 'GET',
+        url: GetOuterCuffUrl,
+        data: {
+        'catagory': cuffDesign,
+        'base_pattern': basePattern,
+        'outer_cuff_pattern': ev.target.id,
+        // csrfmiddlewaretoken: "$('input[name=csrfmiddlewaretoken]').val()",
+        },
+        dataType: 'json',
+        success: function (data) {
+           document.getElementById("outer-top-cuff").src = data.outer_top_cuff;
+           document.getElementById("outer-bottom-cuff").src = data.outer_bottom_cuff;
+           outerCuffPattern = data.outer_cuff_pattern;
+        }
+    });
+}
+
+function loadInnerOpenedCuff(ev) {
+    $.ajax({
+        type: 'GET',
+        url: GetInnerOpenedCuffUrl,
+        data: {
+        'catagory': cuffDesign,
+        'base_pattern': basePattern,
+        'inner_cuff_pattern': ev.target.id,
+        // csrfmiddlewaretoken: "$('input[name=csrfmiddlewaretoken]').val()",
+        },
+        dataType: 'json',
+        success: function (data) {
+           document.getElementById("outer-top-cuff").src = data.outer_top_cuff;
+           document.getElementById("inner-cuff").src = data.inner_cuff;
+           innerCuffPattern = data.inner_cuff_pattern;
+        }
+    });
+}
+
+function loadInnerClosedCuff(ev) {
+    $.ajax({
+        type: 'GET',
+        url: GetInnerClosedCuffUrl,
+        data: {
+        'catagory': cuffDesign,
+        'inner_cuff_pattern': innerCuffPattern,
+        },
+        dataType: 'json',
+        success: function (data) {
+           document.getElementById("inner-cuff").src = data.inner_cuff;
         }
     });
 }

@@ -68,10 +68,6 @@ function resetImages(){
 }
 
 function resetPlacketImages(){
-    document.getElementById("left-shoulder").src = left_shoulder;
-    document.getElementById("right-shoulder").src = right_shoulder;
-    document.getElementById("left-front").src = left_front;
-    document.getElementById("right-front").src = right_front;
     document.getElementById("left-collar-base").src = left_collar_base;
     document.getElementById("right-collar-base").src = right_collar_base;
     document.getElementById("yoke-top").src = yoke_top;
@@ -81,7 +77,11 @@ function resetPlacketImages(){
     document.getElementById("upper-collar").src = upper_collar;
     document.getElementById("outer-right-collar").src = outer_right_collar;
     document.getElementById("outer-left-collar").src = outer_left_collar;
-    document.getElementById("inner-cuff").src = inner_cuff;
+    getMainContent();
+}
+
+function resetCuffImages(){
+    loadInnerClosedCuff();
     document.getElementById("outer-top-cuff").src = outer_top_cuff;
     document.getElementById("outer-bottom-cuff").src = outer_bottom_cuff;
     getMainContent();

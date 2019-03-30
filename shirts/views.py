@@ -29,7 +29,10 @@ def get_pattern(request):
     pattern = get_object_or_404(Pattern, name=(request.GET.get('fabric')))
     yoke = pattern.yoke.all().filter(opened=False).first()
     outer_placket = pattern.outer_placket.all().filter(opened=False).first()
-    if request.GET.get('inner_collar_pattern') == "Bp1" and request.GET.get('outer_collar_pattern') == "Bp1":
+    if (
+        request.GET.get('inner_collar_pattern') == "Bp1" and
+        request.GET.get('outer_collar_pattern') == "Bp1"
+    ):
         icollar_pattern = pattern
         ocollar_pattern = pattern
         icuff_pattern = pattern
@@ -134,10 +137,50 @@ def get_outer_folded_cuff(request):
         icuff_pattern = get_object_or_404(Pattern, name=(request.GET.get('inner_cuff_pattern')))
         ocuff_pattern = get_object_or_404(Pattern, name=(request.GET.get('outer_cuff_pattern')))
     inner_cuff = icuff_pattern.inner_cuff.all().filter(catagory=(request.GET.get('catagory')), opened=True).first()
-    outer_cuff = ocuff_pattern.outer_cuff.all().filter(catagory=(request.GET.get('catagory')), opened=True).first()
+    outer_top_cuff = icuff_pattern.outer_cuff.all().filter(catagory=(request.GET.get('catagory')), opened=True).first()
+    outer_bottom_cuff = ocuff_pattern.outer_cuff.all().filter(catagory=(request.GET.get('catagory')), opened=True).first()
     data = {
         "inner_cuff": inner_cuff.inner.url,
+        "outer_top_cuff": outer_top_cuff.top.url,
+        "outer_bottom_cuff": outer_bottom_cuff.bottom.url,
+    }
+    return JsonResponse(data)
+
+
+def get_outer_cuff(request):
+    pattern = get_object_or_404(Pattern, name=(request.GET.get('base_pattern')))
+    if request.GET.get('outer_cuff_pattern') == "Bp1":
+        ocuff_pattern = pattern
+    else:
+        ocuff_pattern = get_object_or_404(Pattern, name=(request.GET.get('outer_cuff_pattern')))
+    outer_cuff = ocuff_pattern.outer_cuff.all().filter(catagory=(request.GET.get('catagory')), opened=False).first()
+    data = {
         "outer_top_cuff": outer_cuff.top.url,
         "outer_bottom_cuff": outer_cuff.bottom.url,
+        "outer_cuff_pattern": ocuff_pattern.name,
+    }
+    return JsonResponse(data)
+
+
+def get_inner_opened_cuff(request):
+    pattern = get_object_or_404(Pattern, name=(request.GET.get('base_pattern')))
+    if request.GET.get('inner_cuff_pattern') == "Bp1":
+        icuff_pattern = pattern
+    else:
+        icuff_pattern = get_object_or_404(Pattern, name=(request.GET.get('inner_cuff_pattern')))
+    inner_cuff = icuff_pattern.inner_cuff.all().filter(catagory=(request.GET.get('catagory')), opened=True).first()
+    outer_top_cuff = icuff_pattern.outer_cuff.all().filter(catagory=(request.GET.get('catagory')), opened=True).first()
+    data = {
+        "inner_cuff": inner_cuff.inner.url,
+        "outer_top_cuff": outer_top_cuff.top.url,
+        "inner_cuff_pattern": icuff_pattern.name,
+    }
+    return JsonResponse(data)
+
+def get_inner_closed_cuff(request):
+    icuff_pattern = get_object_or_404(Pattern, name=(request.GET.get('inner_cuff_pattern')))
+    inner_cuff = icuff_pattern.inner_cuff.all().filter(catagory=(request.GET.get('catagory')), opened=False).first()
+    data = {
+        "inner_cuff": inner_cuff.inner.url,
     }
     return JsonResponse(data)

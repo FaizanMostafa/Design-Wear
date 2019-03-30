@@ -100,6 +100,9 @@ class OuterCuff(models.Model):
     catagory = models.CharField(max_length=2, choices=CATAGORY_CHOICES, default='RR')
     pattern = models.ForeignKey(Pattern, related_name="outer_cuff", on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.pattern.name + " opened: " + str(self.opened)
+
 class InnerCuff(models.Model):
     CATAGORY_CHOICES = (
         ('AA', 'Angle'),
@@ -113,3 +116,6 @@ class InnerCuff(models.Model):
     opened = models.BooleanField(default=False)
     catagory = models.CharField(max_length=2, choices=CATAGORY_CHOICES, default='RR')
     pattern = models.ForeignKey(Pattern, related_name="inner_cuff", on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.pattern.name + " opened: " + str(self.opened)
