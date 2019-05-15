@@ -15,9 +15,9 @@
                 <li class="fli" OnClick=ShowInnerCollar()>INNER COLLAR</li>
                 <li class="fli" OnClick=ShowOuterCuff()>OUTER CUFFS</li>
                 <li class="fli" OnClick=ShowInnerCuff()>INNER CUFFS</li>
-                <li class="fli">POCKET</li>
                 <li class="fli" OnClick=ShowInnerPlacket()>INNER PLACKET</li>
             </ul>
+            <button OnClick=getSecondMenuContent()>Continue Styling</button>
         </div>
     </div>
     <div style="height:500px; width:400px; display:inline;">
@@ -26,8 +26,8 @@
         <img id="right-shoulder" class="img-container" src="{{ base.r_shoulder.url }}">
         <img id="left-front" class="img-container" src="{{ base.l_front.url }}">
         <img id="right-front" class="img-container" src="{{ base.r_front.url }}">
-        <img id="left-collar-base" class="img-container" src="{{ outer_collar.l_base.url }}">
-        <img id="right-collar-base" class="img-container" src="{{ outer_collar.r_base.url }}">
+        <img id="left-collar-base" class="img-container" src="{{ collar_base.l_base.url }}">
+        <img id="right-collar-base" class="img-container" src="{{ collar_base.r_base.url }}">
         <img id="yoke-top" class="img-container" src="{{ yoke.top.url }}">
         <img id="yoke-bottom" class="img-container" src="{{ yoke.bottom.url }}">
         <img id="inner-placket" class="img-container" src="{{ inner_placket.inner.url }}">
@@ -40,15 +40,30 @@
         <img id="outer-top-cuff" class="img-container" src="{{ outer_cuff.top.url }}">
         <img id="outer-bottom-cuff" class="img-container" src="{{ outer_cuff.bottom.url }}">
     </div>
+    <form id="shirtSpecsForm" style="visibility:hidden" action="{% url 'carts:add_item' %}" method="POST">
+        {% csrf_token %}
+        <input id="basePattern" name="basePattern" type="hidden">
+        <input id="outerCollarPattern" name="outerCollarPattern" type="hidden">
+        <input id="innerCollarPattern" name="innerCollarPattern" type="hidden">
+        <input id="collarDesign" name="collarDesign" type="hidden">
+        <input id="outerCuffPattern" name="outerCuffPattern" type="hidden">
+        <input id="innerCuffPattern" name="innerCuffPattern" type="hidden">
+        <input id="cuffDesign" name="cuffDesign" type="hidden">
+        <input id="innerPlacketPattern" name="innerPlacketPattern" type="hidden">
+        <input id="outerPlacketPattern" name="outerPlacketPattern" type="hidden">
+    </form>
     <script>
         var GetPatternUrl = "{% url 'shirts:get_base_pattern' %}"
-        var GetOuterCollarUrl = "{% url 'shirts:get_outer_collar' %}"
+        var GetOuterCollarPatternUrl = "{% url 'shirts:get_outer_collar_pattern' %}"
+        var GetOuterCollarDesignUrl = "{% url 'shirts:get_outer_collar_design' %}"
         var GetInnerCollarUrl = "{% url 'shirts:get_inner_collar' %}"
         var GetInnerPlacketUrl = "{% url 'shirts:get_inner_placket' %}"
         var GetOuterPlacketUrl = "{% url 'shirts:get_outer_placket' %}"
         var GetOuterFoldedCuffUrl = "{% url 'shirts:get_outer_folded_cuff' %}"
-        var GetOuterCuffUrl = "{% url 'shirts:get_outer_cuff' %}"
+        var GetOuterCuffPatternUrl = "{% url 'shirts:get_outer_cuff_pattern' %}"
+        var GetOuterCuffDesignUrl = "{% url 'shirts:get_outer_cuff_design' %}"
         var GetInnerOpenedCuffUrl = "{% url 'shirts:get_inner_opened_cuff' %}"
         var GetInnerClosedCuffUrl = "{% url 'shirts:get_inner_closed_cuff' %}"
+        var GetAddItemToCartUrl = "{% url 'carts:add_item' %}"
     </script>
 {% endblock content %}

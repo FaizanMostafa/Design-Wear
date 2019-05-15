@@ -44,6 +44,10 @@ INSTALLED_APPS = [
     'pages',
     'accounts',
     'shirts',
+    'carts',
+    'payment',
+    'order',
+    'paypal.standard.ipn',
 ]
 
 MIDDLEWARE = [
@@ -135,6 +139,10 @@ STATICFILES_DIRS = [
 
 
 MEDIA_URL = '/media/'
-LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'index'
+LOGOUT_REDIRECT_URL = 'index'
 AUTH_USER_MODEL = 'accounts.User'
+
+#PAYPAL_SETTINGS
+PAYPAL_RECEIVER_EMAIL = 'testdjangopaypal@gmail.com'
+PAYPAL_TEST = True

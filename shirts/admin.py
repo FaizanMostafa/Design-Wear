@@ -1,7 +1,9 @@
 from django.contrib import admin
 from . models import (
-    Base, Pattern, InnerCollar, OuterCuff, Yoke, Background,
-    InnerCuff, OuterCollar, OuterPlacket, InnerPlacket,
+    Base, Pattern, InnerCollar,
+    OuterCuff, Yoke, Background,
+    InnerCuff, OuterCollar, OuterPlacket,
+    InnerPlacket, CollarBase, Shirt, Creator
 )
 
 # class PatternBase(admin.AdminSite):
@@ -18,3 +20,6 @@ admin.site.register(OuterCuff)
 admin.site.register(InnerCuff)
 admin.site.register(OuterPlacket)
 admin.site.register(InnerPlacket)
+admin.site.register(CollarBase)
+admin.site.register(Shirt)
+admin.site.register(Creator)

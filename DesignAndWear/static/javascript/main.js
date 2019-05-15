@@ -15,9 +15,9 @@ function getMainContent() {
                                 <li class="fli" OnClick=ShowInnerCollar()>INNER COLLAR</li>
                                 <li class="fli" OnClick=ShowOuterCuff()>OUTER CUFFS</li>
                                 <li class="fli" OnClick=ShowInnerCuff()>INNER CUFFS</li>
-                                <li class="fli">POCKET</li>
                                 <li class="fli" OnClick=ShowInnerPlacket()>INNER PLACKET</li>
-                            </ul>`;
+                            </ul>
+                            <button OnClick=getSecondMenuContent()>Continue Styling</button>`;
     document.getElementById("listContainer").replaceChild(contentDiv, document.getElementById("content"));
 }
 
@@ -53,22 +53,22 @@ function ShowOuterCollar() {
     preserveDesignsPatterns();
     target = document.getElementById("content");
     target.innerHTML = `
-                        <div class="fabric" id="OCp1" onclick=loadOuterCollar(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: red;">P1</div>
-                        <div class="fabric" id="OCp2" onclick=loadOuterCollar(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: green;">P2</div>
-                        <div class="fabric" id="OCp3" onclick=loadOuterCollar(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: blue;">P3</div>
-                        <div class="fabric" id="OCp4" onclick=loadOuterCollar(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: yellow;">P4</div>
-                        <div class="fabric" id="OCp5" onclick=loadOuterCollar(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: red;">P5</div>
-                        <div class="fabric" id="OCp6" onclick=loadOuterCollar(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: green;">P6</div>
-                        <div class="fabric" id="OCp7" onclick=loadOuterCollar(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: blue;">P7</div>
-                        <div class="fabric" id="OCp8" onclick=loadOuterCollar(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: yellow;">P8</div>
-                        <div class="fabric" id="OCp9" onclick=loadOuterCollar(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: red;">P9</div>
-                        <div class="fabric" id="OCp10" onclick=loadOuterCollar(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: green;">P10</div>
-                        <div class="fabric" id="OCp11" onclick=loadOuterCollar(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: blue;">P11</div>
-                        <div class="fabric" id="OCp12" onclick=loadOuterCollar(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: yellow;">P12</div>
-                        <div class="fabric" id="OCp13" onclick=loadOuterCollar(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: red;">P13</div>
-                        <div class="fabric" id="OCp14" onclick=loadOuterCollar(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: green;">P14</div>
-                        <div class="fabric" id="OCp15" onclick=loadOuterCollar(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: blue;">P15</div>
-                        <div class="fabric" id="OCp16" onclick=loadOuterCollar(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: yellow;">P16</div>
+                        <div class="fabric" id="OCp1" onclick=loadOuterCollarPattern(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: red;">P1</div>
+                        <div class="fabric" id="OCp2" onclick=loadOuterCollarPattern(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: green;">P2</div>
+                        <div class="fabric" id="OCp3" onclick=loadOuterCollarPattern(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: blue;">P3</div>
+                        <div class="fabric" id="OCp4" onclick=loadOuterCollarPattern(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: yellow;">P4</div>
+                        <div class="fabric" id="OCp5" onclick=loadOuterCollarPattern(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: red;">P5</div>
+                        <div class="fabric" id="OCp6" onclick=loadOuterCollarPattern(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: green;">P6</div>
+                        <div class="fabric" id="OCp7" onclick=loadOuterCollarPattern(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: blue;">P7</div>
+                        <div class="fabric" id="OCp8" onclick=loadOuterCollarPattern(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: yellow;">P8</div>
+                        <div class="fabric" id="OCp9" onclick=loadOuterCollarPattern(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: red;">P9</div>
+                        <div class="fabric" id="OCp10" onclick=loadOuterCollarPattern(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: green;">P10</div>
+                        <div class="fabric" id="OCp11" onclick=loadOuterCollarPattern(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: blue;">P11</div>
+                        <div class="fabric" id="OCp12" onclick=loadOuterCollarPattern(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: yellow;">P12</div>
+                        <div class="fabric" id="OCp13" onclick=loadOuterCollarPattern(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: red;">P13</div>
+                        <div class="fabric" id="OCp14" onclick=loadOuterCollarPattern(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: green;">P14</div>
+                        <div class="fabric" id="OCp15" onclick=loadOuterCollarPattern(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: blue;">P15</div>
+                        <div class="fabric" id="OCp16" onclick=loadOuterCollarPattern(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: yellow;">P16</div>
                         `;
     var backBtn = document.createElement("button");
     backBtn.innerHTML = "Back";
@@ -211,24 +211,24 @@ function ShowOuterCuff() {
     preserveDesignsPatterns();
     target = document.getElementById("content");
     target.innerHTML = `
-                        <div class="fabric" id="OCup1" onclick=loadOuterCuff(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: red;">P1</div>
-                        <div class="fabric" id="OCup2" onclick=loadOuterCuff(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: green;">P2</div>
-                        <div class="fabric" id="OCup3" onclick=loadOuterCuff(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: blue;">P3</div>
-                        <div class="fabric" id="OCup4" onclick=loadOuterCuff(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: yellow;">P4</div>
-                        <div class="fabric" id="OCup5" onclick=loadOuterCuff(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: red;">P5</div>
-                        <div class="fabric" id="OCup6" onclick=loadOuterCuff(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: green;">P6</div>
-                        <div class="fabric" id="OCup7" onclick=loadOuterCuff(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: blue;">P7</div>
-                        <div class="fabric" id="OCup8" onclick=loadOuterCuff(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: yellow;">P8</div>
-                        <div class="fabric" id="OCup9" onclick=loadOuterCuff(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: red;">P9</div>
-                        <div class="fabric" id="OCup10" onclick=loadOuterCuff(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: green;">P10</div>
-                        <div class="fabric" id="OCup11" onclick=loadOuterCuff(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: blue;">P11</div>
-                        <div class="fabric" id="OCup12" onclick=loadOuterCuff(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: yellow;">P12</div>
-                        <div class="fabric" id="OCup13" onclick=loadOuterCuff(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: red;">P13</div>
-                        <div class="fabric" id="OCup14" onclick=loadOuterCuff(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: green;">P14</div>
-                        <div class="fabric" id="OCup15" onclick=loadOuterCuff(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: blue;">P15</div>
-                        <div class="fabric" id="OCup16" onclick=loadOuterCuff(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: yellow;">P16</div>
-                        <div class="fabric" id="OCup17" onclick=loadOuterCuff(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: blue;">P17</div>
-                        <div class="fabric" id="OCup18" onclick=loadOuterCuff(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: yellow;">P18</div>
+                        <div class="fabric" id="OCup1" onclick=loadOuterCuffPattern(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: red;">P1</div>
+                        <div class="fabric" id="OCup2" onclick=loadOuterCuffPattern(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: green;">P2</div>
+                        <div class="fabric" id="OCup3" onclick=loadOuterCuffPattern(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: blue;">P3</div>
+                        <div class="fabric" id="OCup4" onclick=loadOuterCuffPattern(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: yellow;">P4</div>
+                        <div class="fabric" id="OCup5" onclick=loadOuterCuffPattern(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: red;">P5</div>
+                        <div class="fabric" id="OCup6" onclick=loadOuterCuffPattern(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: green;">P6</div>
+                        <div class="fabric" id="OCup7" onclick=loadOuterCuffPattern(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: blue;">P7</div>
+                        <div class="fabric" id="OCup8" onclick=loadOuterCuffPattern(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: yellow;">P8</div>
+                        <div class="fabric" id="OCup9" onclick=loadOuterCuffPattern(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: red;">P9</div>
+                        <div class="fabric" id="OCup10" onclick=loadOuterCuffPattern(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: green;">P10</div>
+                        <div class="fabric" id="OCup11" onclick=loadOuterCuffPattern(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: blue;">P11</div>
+                        <div class="fabric" id="OCup12" onclick=loadOuterCuffPattern(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: yellow;">P12</div>
+                        <div class="fabric" id="OCup13" onclick=loadOuterCuffPattern(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: red;">P13</div>
+                        <div class="fabric" id="OCup14" onclick=loadOuterCuffPattern(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: green;">P14</div>
+                        <div class="fabric" id="OCup15" onclick=loadOuterCuffPattern(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: blue;">P15</div>
+                        <div class="fabric" id="OCup16" onclick=loadOuterCuffPattern(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: yellow;">P16</div>
+                        <div class="fabric" id="OCup17" onclick=loadOuterCuffPattern(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: blue;">P17</div>
+                        <div class="fabric" id="OCup18" onclick=loadOuterCuffPattern(event) style="height: 40px; width: 40px; display: inline-block; margin-left: 7px; background-color: yellow;">P18</div>
                         `;
     var backBtn = document.createElement("button");
     backBtn.innerHTML = "Back";

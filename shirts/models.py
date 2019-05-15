@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from accounts.models import User
 from PIL import Image
 
 # Create your models here.
@@ -55,6 +56,9 @@ class InnerCollar(models.Model):
     catagory = models.CharField(max_length=2, choices=CATAGORY_CHOICES, default='RR')
     pattern = models.ForeignKey(Pattern, related_name="inner_collar", on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.pattern.name + " catagory: " + self.catagory + " opened: " + str(self.opened)
+
 class OuterCollar(models.Model):
     CATAGORY_CHOICES = (
         ('RR', 'Regular'),
@@ -75,6 +79,14 @@ class OuterCollar(models.Model):
     outer_l = models.ImageField(
         _("Outer Left Collar"), upload_to="outer_collars/outer_left_collars/"
     )
+    opened = models.BooleanField(default=False)
+    catagory = models.CharField(max_length=2, choices=CATAGORY_CHOICES, default='RR')
+    pattern = models.ForeignKey(Pattern, related_name="outer_collar", on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.pattern.name + " catagory: " + self.catagory + " opened: " + str(self.opened)
+
+class CollarBase(models.Model):
     l_base = models.ImageField(
         _("Left Collar Base"), upload_to='outer_collars/left_collor_bases/'
     )
@@ -82,8 +94,10 @@ class OuterCollar(models.Model):
         _("Right Collar Base"), upload_to='outer_collars/right_color_bases/'
     )
     opened = models.BooleanField(default=False)
-    catagory = models.CharField(max_length=2, choices=CATAGORY_CHOICES, default='RR')
-    pattern = models.ForeignKey(Pattern, related_name="outer_collar", on_delete=models.CASCADE)
+    pattern = models.ForeignKey(Pattern, related_name="collar_base", on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.pattern.name + " opened: " + str(self.opened)
 
 class OuterCuff(models.Model):
     CATAGORY_CHOICES = (
@@ -101,7 +115,7 @@ class OuterCuff(models.Model):
     pattern = models.ForeignKey(Pattern, related_name="outer_cuff", on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.pattern.name + " opened: " + str(self.opened)
+        return self.pattern.name + " catagory: " + self.catagory + " opened: " + str(self.opened)
 
 class InnerCuff(models.Model):
     CATAGORY_CHOICES = (
@@ -118,4 +132,37 @@ class InnerCuff(models.Model):
     pattern = models.ForeignKey(Pattern, related_name="inner_cuff", on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.pattern.name + " opened: " + str(self.opened)
+        return self.pattern.name + " catagory: " + self.catagory + " opened: " + str(self.opened)
+    
+class Pocket(models.Model):
+    pass
+
+class Button(models.Model):
+        pass
+
+class Shirt(models.Model):
+    base = models.ForeignKey(Base, related_name="base", on_delete=models.CASCADE)
+    inner_collar = models.ForeignKey(InnerCollar, related_name="inner_collar", on_delete=models.CASCADE)
+    outer_collar = models.ForeignKey(OuterCollar, related_name="outer_collar", on_delete=models.CASCADE)
+    collar_base = models.ForeignKey(CollarBase, related_name="collar_base", on_delete=models.CASCADE)
+    yoke = models.ForeignKey(Yoke, related_name="yoke", on_delete=models.CASCADE)
+    outer_placket = models.ForeignKey(OuterPlacket, related_name="outer_placket", on_delete=models.CASCADE)
+    inner_placket = models.ForeignKey(InnerPlacket, related_name="inner_placket", on_delete=models.CASCADE)
+    outer_cuff = models.ForeignKey(OuterCuff, related_name="outer_cuff", on_delete=models.CASCADE)
+    inner_cuff = models.ForeignKey(InnerCuff, related_name="inner_cuff", on_delete=models.CASCADE)
+    # pocket = models.ForeignKey(Pocket, related_name="pocket", on_delete=models.CASCADE)
+    # button = models.ForeignKey(Button, related_name="button", on_delete=models.CASCADE)
+    CATAGORY_CHOICES = (
+        ('SP', 'Side Pleats'),
+        ('BP', 'Box Pleats'),
+        ('NN', 'None'),
+    )
+    shirt_back = models.CharField(max_length=2, choices=CATAGORY_CHOICES, default='NN')
+    created_on = models.DateTimeField(_("Created On"), editable=False, auto_now_add=True)
+    likes = models.IntegerField(default=0, editable=False)
+    price = models.IntegerField(default=12, editable=False)
+    sess_id = models.CharField(max_length=32, default="")
+
+class Creator(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    shirt = models.ForeignKey(Shirt, on_delete=models.CASCADE)

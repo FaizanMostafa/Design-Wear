@@ -1,0 +1,210 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Cart
+{% endblock title %}
+
+
+{% block content %}
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-2 col-lg-1"></div>
+            <div class="col-md row">
+                <div class="col-md-12 col-lg-7">
+                    {% for shirt in shirts %}
+                        <div class="row" style="padding:5px;">
+                            <div class="col-5 my-auto" style="padding:0em 0.25em 0em 0em;">
+                                <div class="box container-div col">
+                                    <div class="content">
+                                        <img class="img-div index2" src="{{ shirt.outer_collar.outer_r.url }}" alt="OuterCollerLeft">
+                                        <img class="img-div index2" src="{{ shirt.outer_collar.outer_l.url }}" alt="OuterCollerRight">
+                                        <img class="img-div index1" src="{{ shirt.outer_collar.upper.url }}" alt="UpperColler">
+                                        <img class="img-div index1" src="{{ shirt.inner_collar.inner.url }}" alt="InnerColler">
+                                        <img class="img-div index0" src="{{ shirt.yoke.top.url }}" alt="YokeTop">
+                                        <img class="img-div index0" src="{{ shirt.yoke.bottom.url }}" alt="YokeBottom">
+                                        <img class="img-div index1" src="{{ shirt.collar_base.l_base.url }}" alt="CollarLeftBase">
+                                        <img class="img-div index0" src="{{ shirt.collar_base.r_base.url }}" alt="CollarRightBase">
+                                        <img class="img-div index1" src="{{ shirt.base.r_shoulder.url }}" alt="UpperRightShoulder">
+                                        <img class="img-div index1" src="{{ shirt.base.l_shoulder.url }}" alt="UpperLeftShoulder">
+                                        <img class="img-div index1" src="{{ shirt.base.r_front.url }}" alt="RightFront">
+                                        <img class="img-div index1" src="{{ shirt.base.l_front.url }}" alt="LeftFront">
+                                        <img class="img-div index0" src="{{ background.url }}" alt="Background">
+                                        <img class="img-div index2" src="{{ shirt.outer_placket.outer.url }}" alt="OuterPlacket">
+                                        <img class="img-div index2" src="{{ shirt.outer_cuff.top.url }}" alt="UpperCuff">
+                                        <img class="img-div index2" src="{{ shirt.outer_cuff.bottom.url }}" alt="LowerCuff">
+                                        <img class="img-div index2" src="{{ shirt.inner_cuff.inner.url }}" alt="InnerCuff">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-7 my-auto">
+                                <br><b>Men's Custom Shirt</b><br>
+                                <fieldset>
+                                    <b>Sizes:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
+                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                        <label class="btn btn-secondary">
+                                            <input type="radio" name="sizes" id="option1" value="s" autocomplete="off"> S
+                                        </label>
+                                        <label class="btn btn-secondary">
+                                            <input type="radio" name="sizes" id="option2" value="m" autocomplete="off"> M
+                                        </label>
+                                        <label class="btn btn-secondary active">
+                                            <input type="radio" name="sizes" id="option3" value="l" autocomplete="off"
+                                                checked> L
+                                        </label>
+                                        <label class="btn btn-secondary">
+                                            <input type="radio" name="sizes" id="option4" value="xl" autocomplete="off"> XL
+                                        </label>
+                                        <label class="btn btn-secondary">
+                                            <input type="radio" name="sizes" id="option5" value="xxl" autocomplete="off">
+                                            XXL
+                                        </label>
+                                    </div>
+                                </fieldset>
+                                <br>
+                                <fieldset>
+                                    <b>Fittings:&nbsp;&nbsp;</b>
+                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                        <label class="btn btn-secondary">
+                                            <input type="radio" name="fittings" id="option1" autocomplete="off"> Slim
+                                        </label>
+                                        <label class="btn btn-secondary active">
+                                            <input type="radio" name="fittings" id="option2" autocomplete="off" checked>
+                                            Regular
+                                        </label>
+                                        <label class="btn btn-secondary">
+                                            <input type="radio" name="fittings" id="option3" autocomplete="off"> Relaxed
+                                        </label>
+                                    </div>
+                                </fieldset>
+                                <b>Price: {{shirt.price}}$</b><br>
+                                <b>Qty: 1</b><br><br>
+                                <b>
+                                    <p class="text-center">
+                                        <a data-toggle="modal" data-target="#exampleModalCenter" style="cursor: pointer; text-decoration: none;">View Sizing</a> | 
+                                        {% comment %} <a href="{% url 'shirts:edit_design' shirt.pk %}" style="cursor: pointer; text-decoration: none;">Edit Design</a> |  {% endcomment %}
+                                        <a href="{% url 'carts:remove_item' shirt.pk %}" style="cursor: pointer; text-decoration: none;">Remove</a>
+                                    </p>
+                                </b>
+                            </div>
+                        </div>
+                        <hr>
+                    {% endfor %}
+                </div>
+                <div class="col-md-12 col-lg-5" style="padding: 60px 0px 45px 45px;">
+                    <div style="background-color:#F9FAFB; padding: 21px 21px 15px 21px; border-radius: 7px;">
+                        <h3 class="text-center" style="margin-bottom: 3.5vw;">Cart</h3>
+                        <b>Shirts:</b><b class="float-right">{{cart.sub_total}}$</b><br>
+                        <b>Shipping:</b><b class="float-right">{{cart.shipping}}$</b>
+                        <hr>
+                        <b>Total:</b><b class="float-right">{{cart.grand_total}}$</b>
+                        <a href="{% url 'orders:place' %}">
+                            <button style="margin-top: 10px;" class="btn btn-primary btn-lg btn-block">Checkout</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-lg-1"></div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Available Sizes <sub>&lpar;In Inches&rpar;</sub>
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr aria-rowspan="2" class="text-center">
+                                <th style="vertical-align: top" rowspan="2" scope="col">Size</th>
+                                <th style="vertical-align: top" rowspan="2" scope="col">Neck</th>
+                                <th style="vertical-align: top" rowspan="2" scope="col">Sleeve</th>
+                                <th colspan="3" scope="colgroup">Chest</th>
+                                <th colspan="3" scope="colgroup">Hip</th>
+                                <th style="vertical-align: top" rowspan="2" scope="col">Length</th>
+                            </tr>
+                            <tr>
+                                <th rowspan="2" scope="col">Slim</th>
+                                <th rowspan="2" scope="col">Regular</th>
+                                <th rowspan="2" scope="col">Relaxed</th>
+                                <th scope="col">Slim</th>
+                                <th scope="col">Regular</th>
+                                <th scope="col">Relaxed</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="text-center">
+                                <th scope="row">S</th>
+                                <td>15.5&quot;</td>
+                                <td>33&quot;</td>
+                                <td>42.5&quot;</td>
+                                <td>43.5&quot;</td>
+                                <td>44.5&quot;</td>
+                                <td>40.5&quot;</td>
+                                <td>41.5&quot;</td>
+                                <td>42.5&quot;</td>
+                                <td>32.5&quot;</td>
+                            </tr>
+                            <tr class="text-center">
+                                <th scope="row">M</th>
+                                <td>16.5&quot;</td>
+                                <td>34.5&quot;</td>
+                                <td>46&quot;</td>
+                                <td>47&quot;</td>
+                                <td>48&quot;</td>
+                                <td>43.5&quot;</td>
+                                <td>44.5&quot;</td>
+                                <td>46&quot;</td>
+                                <td>32.5&quot;</td>
+                            </tr>
+                            <tr class="text-center">
+                                <th scope="row">L</th>
+                                <td>17.5&quot;</td>
+                                <td>35&quot;</td>
+                                <td>48.5&quot;</td>
+                                <td>49.5&quot;</td>
+                                <td>50.5&quot;</td>
+                                <td>47&quot;</td>
+                                <td>48&quot;</td>
+                                <td>49&quot;</td>
+                                <td>33&quot;</td>
+                            </tr>
+                            <tr class="text-center">
+                                <th scope="row">XL</th>
+                                <td>18.5&quot;</td>
+                                <td>36&quot;</td>
+                                <td>52&quot;</td>
+                                <td>53&quot;</td>
+                                <td>54&quot;</td>
+                                <td>50.5&quot;</td>
+                                <td>52&quot;</td>
+                                <td>53.5&quot;</td>
+                                <td>34.5&quot;</td>
+                            </tr>
+                            <tr class="text-center">
+                                <th scope="row">XXL</th>
+                                <td>19.5&quot;</td>
+                                <td>37&quot;</td>
+                                <td>55.5&quot;</td>
+                                <td>56.5&quot;</td>
+                                <td>57.5&quot;</td>
+                                <td>55&quot;</td>
+                                <td>56&quot;</td>
+                                <td>57.5&quot;</td>
+                                <td>34.5&quot;</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

@@ -22,5 +22,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
     path('shirts/', include('shirts.urls')),
+    path('cart/', include('carts.urls')),
+    path('paypal/', include('paypal.standard.ipn.urls')),
+    path('payment/', include('payment.urls')),
+    path('order/', include('order.urls')),
     path('', include('pages.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
