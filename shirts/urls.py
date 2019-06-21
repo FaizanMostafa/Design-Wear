@@ -17,6 +17,7 @@ urlpatterns = [
     path('getinneropenedcuff/', views.get_inner_opened_cuff, name='get_inner_opened_cuff'),
     path('getinnerclosedcuff/', views.get_inner_closed_cuff, name='get_inner_closed_cuff'),
     path('getpocket/', views.get_pocket, name='get_pocket'),
+    path('getbuttons/', views.get_buttons, name='get_buttons'),
     # path('postshirtspecs/', views.post_shirt_specs, name='post_shirt_specs'),
     # path('editdesign/<int:pk>', views.edit_design, name='edit_design'),
 ]

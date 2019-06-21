@@ -177,15 +177,26 @@ function ShowBuutons() {
     preserveImages();
     preserveDesignsPatterns();
     target = document.getElementById("content");
-    target.innerHTML = `
+    target.innerHTML = `<center>
                         <div>
-                            <div class="fabric" id="RR" onclick=loadOuterCuffDesign(event) style="height: 40px; width: 90px; display: inline-block; margin-left: 7px; background-color: red;">ROUND</div>
-                            <div class="fabric" id="BA" onclick=loadOuterCuffDesign(event) style="height: 40px; width: 90px; display: inline-block; margin-left: 7px; background-color: green;">BIG ANGLE</div>
-                            <div class="fabric" id="SQ" onclick=loadOuterCuffDesign(event) style="height: 40px; width: 90px; display: inline-block; margin-left: 7px; background-color: blue;">SQUARE</div>
-                            <div class="fabric" id="BR" onclick=loadOuterCuffDesign(event) style="height: 40px; width: 90px; display: inline-block; margin-left: 7px; background-color: yellow;">BIG ROUND</div>
-                            <div class="fabric" id="AA" onclick=loadOuterCuffDesign(event) style="height: 40px; width: 90px; display: inline-block; margin-left: 7px; background-color: yellow;">ANGLE</div>
-                            <div class="fabric" id="FR" onclick=loadOuterCuffDesign(event) style="height: 40px; width: 90px; display: inline-block; margin-left: 7px; background-color: yellow;">FRENCH</div>
+                            <div class="buttons" id="b1" onclick=loadButtons(event) style="height: 100px; width: 100px; display: inline-block; margin: 7px;"></div>
+                            <div class="buttons" id="b2" onclick=loadButtons(event) style="height: 100px; width: 100px; display: inline-block; margin: 7px;"></div>
+                            <div class="buttons" id="b3" onclick=loadButtons(event) style="height: 100px; width: 100px; display: inline-block; margin: 7px;"></div>
+                            <div class="buttons" id="b4" onclick=loadButtons(event) style="height: 100px; width: 100px; display: inline-block; margin: 7px;"></div>
+                            <div class="buttons" id="b5" onclick=loadButtons(event) style="height: 100px; width: 100px; display: inline-block; margin: 7px;"></div>
+                            <div class="buttons" id="b6" onclick=loadButtons(event) style="height: 100px; width: 100px; display: inline-block; margin: 7px;"></div>
+                            <div class="buttons" id="b7" onclick=loadButtons(event) style="height: 100px; width: 100px; display: inline-block; margin: 7px;"></div>
+                            <div class="buttons" id="b8" onclick=loadButtons(event) style="height: 100px; width: 100px; display: inline-block; margin: 7px;"></div>
+                            <div class="buttons" id="b9" onclick=loadButtons(event) style="height: 100px; width: 100px; display: inline-block; margin: 7px;"></div>
+                            <div class="buttons" id="b10" onclick=loadButtons(event) style="height: 100px; width: 100px; display: inline-block; margin: 7px;"></div>
+                            <div class="buttons" id="b11" onclick=loadButtons(event) style="height: 100px; width: 100px; display: inline-block; margin: 7px;"></div>
+                            <div class="buttons" id="b12" onclick=loadButtons(event) style="height: 100px; width: 100px; display: inline-block; margin: 7px;"></div>
+                            <div class="buttons" id="b13" onclick=loadButtons(event) style="height: 100px; width: 100px; display: inline-block; margin: 7px;"></div>
+                            <div class="buttons" id="b14" onclick=loadButtons(event) style="height: 100px; width: 100px; display: inline-block; margin: 7px;"></div>
+                            <div class="buttons" id="b15" onclick=loadButtons(event) style="height: 100px; width: 100px; display: inline-block; margin: 7px;"></div>
+                            <div class="buttons" id="b16" onclick=loadButtons(event) style="height: 100px; width: 100px; display: inline-block; margin: 7px;"></div>
                         </div>
+                        </center>
                         `;
     var btnDiv = document.createElement("div");
     btnDiv.id = "btns_div";

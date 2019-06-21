@@ -253,6 +253,26 @@ function loadPocket(ev) {
     });
 }
 
+function loadButtons(ev) {
+    $.ajax({
+        type: 'GET',
+        url: GetButtonsUrl,
+        data: {
+        'color': ev.target.id,
+        'collar': collarDesign,
+        'cuff': cuffDesign,
+        // csrfmiddlewaretoken: "$('input[name=csrfmiddlewaretoken]').val()",
+        },
+        dataType: 'json',
+        success: function (data) {
+           document.getElementById("base-button").src = data.base_button;
+           document.getElementById("cuff-button").src = data.cuff_button;
+           document.getElementById("collar-button").src = data.collar_button;
+           buttonColor = data.button_color;
+        }
+    });
+}
+
 function loadInnerOpenedCuff(ev) {
     $.ajax({
         type: 'GET',

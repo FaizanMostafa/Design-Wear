@@ -277,11 +277,22 @@ def get_inner_closed_cuff(request):
 def get_pocket(request):
     base_pattern = get_object_or_404(Pattern, name=(request.GET.get('pattern')))
     visible = request.GET.get('visible')
-    print("\n", base_pattern, "\n")
-    print("\n", visible, "\n")
     pocket = base_pattern.pocket.all().filter(visible=visible).first()
     data = {
         "pocket": pocket.pocket.url,
         "visible": visible,
+    }
+    return JsonResponse(data)
+
+def get_buttons(request):
+    button_color = request.GET.get('color')
+    base_button = get_object_or_404(BaseButton, color=button_color)
+    cuff_button = CuffButton.objects.all().filter(color=button_color, catagory=request.GET.get('cuff'), opened=False).first()
+    collar_button = CollarButton.objects.all().filter(color=button_color, catagory=request.GET.get('collar'), opened=False).first()
+    data = {
+        "base_button": base_button.button.url,
+        "cuff_button": cuff_button.button.url,
+        "collar_button": collar_button.button.url,
+        "button_color": button_color,
     }
     return JsonResponse(data)
