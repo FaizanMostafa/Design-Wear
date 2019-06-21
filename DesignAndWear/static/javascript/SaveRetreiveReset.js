@@ -1,7 +1,7 @@
-var left_shoulder, right_shoulder, left_front, right_front, left_collar_base, right_collar_base;
+var left_shoulder, right_shoulder, left_front, right_front, left_collar_base, right_collar_base, collar_button, cuff_button, button_holes, pocketUrl;
 var yoke_top, yoke_bottom, inner_placket, outer_placket, inner_collar, upper_collar, outer_right_collar, outer_left_collar, inner_cuff, outer_top_cuff, outer_bottom_cuff;
 var tempCuffDesign, tempOuterCuffPattern, tempInnerCuffPattern, tempInnerPlacketPattern, tempBasePattern, tempOuterCollarPattern, tempCollarDesign, tempInnerCollarPattern, temOuterPlacketPattern;
-var cuffDesign="RR", outerCuffPattern="Bp1", innerCuffPattern="Bp1", innerPlacketPattern="Bp1", basePattern="Bp1", outerCollarPattern="Bp1", collarDesign="RR", innerCollarPattern="Bp1", outerPlacketPattern="Bp1";
+var buttonColor="b1", cuffDesign="RR", outerCuffPattern="Bp1", innerCuffPattern="Bp1", innerPlacketPattern="Bp1", basePattern="Bp1", outerCollarPattern="Bp1", collarDesign="RR", innerCollarPattern="Bp1", outerPlacketPattern="Bp1", pocket=false;
 
 function preserveDesignsPatterns() {
     tempBasePattern = basePattern;
@@ -45,6 +45,9 @@ function preserveImages() {
     inner_cuff = document.getElementById("inner-cuff").src;
     outer_top_cuff = document.getElementById("outer-top-cuff").src;
     outer_bottom_cuff = document.getElementById("outer-bottom-cuff").src;
+    collar_button = document.getElementById("collar-button").src;
+    cuff_button = document.getElementById("cuff-button").src;
+    button_holes = document.getElementById("collar-button-holes").src;
 }
 
 function resetImages(){
@@ -65,6 +68,9 @@ function resetImages(){
     document.getElementById("inner-cuff").src = inner_cuff;
     document.getElementById("outer-top-cuff").src = outer_top_cuff;
     document.getElementById("outer-bottom-cuff").src = outer_bottom_cuff;
+    document.getElementById("collar-button").src = collar_button;
+    document.getElementById("cuff-button").src = cuff_button;
+    document.getElementById("collar-button-holes").src = button_holes;
 }
 
 function resetPlacketImages(){

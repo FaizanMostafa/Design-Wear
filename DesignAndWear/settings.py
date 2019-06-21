@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'carts',
     'payment',
     'order',
+    'shipments',
     'paypal.standard.ipn',
 ]
 

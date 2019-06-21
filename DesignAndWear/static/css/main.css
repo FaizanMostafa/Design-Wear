@@ -1,3 +1,272 @@
+#shipment_cover{
+    /* The image used */
+    background-image: url("../bg_imgs/shipment_cover.jpg");
+}
+
+#login_cover{
+    /* The image used */
+    background-image: url("../bg_imgs/login_cover.jpg");
+}
+
+#register_cover{
+    /* The image used */
+    background-image: url("../bg_imgs/register_cover.jpg");
+}
+
+.sprite1 {
+    background-image: url("../icons/icons_sprite1.png");
+}
+
+.sprite2 {
+    background-image: url("../icons/icons_sprite2.png");
+}
+
+.sprite-icons {
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 27px;
+    height: 40px;
+    margin-bottom: -15px;
+}
+
+#base-fabric-icon {
+    background-position: -414px 0;
+}
+
+#base-fabric-icon:hover {
+    background-position: -440px 0;
+}
+
+#outer-collar-icon {
+    background-position: -578px 5px;
+}
+
+#outer-collar-icon:hover {
+    background-position: -605px 5px;
+}
+
+#inner-collar-icon {
+    background-position: -468px 5px;
+}
+
+#inner-collar-icon:hover {
+    background-position: -495px 5px;
+}
+
+#outer-cuff-icon {
+    background-position: -632px 5px;
+}
+
+#outer-cuff-icon:hover {
+    background-position: -660px 5px;
+}
+
+#inner-cuff-icon {
+    background-position: -522px 5px;
+}
+
+#inner-cuff-icon:hover {
+    background-position: -550px 5px;
+}
+
+#inner-placket-icon {
+    background-position: -687px 2px;
+    width: 8px;
+}
+
+#inner-placket-icon:hover {
+    background-position: -695px 2px;
+}
+
+#collar-style-icon {
+    background-position: -935px 5px;
+}
+
+#collar-style-icon:hover {
+    background-position: -908px 5px;
+}
+
+#cuff-style-icon {
+    background-position: -990px 5px;
+}
+
+#cuff-style-icon:hover {
+    background-position: -962px 5px;
+}
+
+#pocket-icon {
+    background-position: -724px 8px;
+    width: 22px;
+}
+
+#pocket-icon:hover {
+    background-position: -702px 8px;
+}
+
+#shirt-back-icon {
+    background-position: -851px 5px;
+    width: 21px;
+}
+
+#shirt-back-icon:hover {
+    background-position: -830px 5px;
+}
+
+#button-icon {
+    background-position: -890px 10px;
+    width: 18px;
+}
+
+#button-icon:hover {
+    background-position: -872px 10px;
+}
+
+#monogram-icon {
+    background-position: -1047px 10px;
+}
+
+#monogram-icon:hover {
+    background-position: -1019px 10px;
+}
+
+.base-fabric-sprite1 {
+    background-image: url("../icons/base_fabric_sprite.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
+.base-fabric-sprite2 {
+    background-image: url("../icons/base_fabric_sprite2.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
+.base-fabric-sprite3 {
+    background-image: url("../icons/base_fabric_sprite3.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
+#Bp1 {
+    background-position: 0px -8360px;
+}
+
+#Bp2 {
+    background-position: 0px -6156px;
+}
+
+#Bp3 {
+    background-position: 0px -5776px;
+}
+
+#Bp4 {
+    background-position: 0px -8892px;
+}
+
+#Bp5 {
+    background-position: 0px -4560px;
+}
+
+#Bp6 {
+    background-position: 0px -8816px;
+}
+
+#Bp7 {
+    background-position: 0px -4028px;
+}
+
+#Bp8 {
+    background-position: 0px -2508px;
+}
+
+#Bp9 {
+    background-position: 0px -5548px;
+}
+
+.collar-designs {
+    background-image: url("../icons/collar_designs.jpg");
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
+.shirt_back {
+    background-image: url("../icons/shirt_back.jpg");
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
+#NNN {
+    background-position: -199px 0;
+}
+
+#BPP {
+    background-position: 0px 0;
+}
+
+#SPP {
+    background-position: -99px 0;
+}
+
+#RR {
+    background-position: -600px 0;
+}
+
+#SP {
+    background-position: -900px 0;
+}
+
+#CA {
+    background-position: -200px 0;
+}
+
+#BR {
+    background-position: -100px 0;
+}
+
+#PH {
+    background-position: -500px 0;
+}
+
+#SW {
+    background-position: -400px 0;
+}
+
+#WS {
+    background-position: -1100px 0;
+}
+
+#SS {
+    background-position: -1000px 0;
+}
+
+#DB {
+    background-position: -300px 0;
+}
+
+#RB {
+    background-position: 0px 0;
+}
+
+.bg_cover {
+    /* Full height */
+    height: 100%; 
+
+    /* form padding */
+    padding: 25px 0px 0px 25px;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#pypl-logo {
+    width:90px;
+}
+
 ul.fli {
     margin: auto;
     padding: 0px;
@@ -5,18 +274,20 @@ ul.fli {
 
 .img-container {
     position: absolute;
-    display: inline-block;
-    width: 450px;
-    height: auto;
-    z-index: 0;
+    /* display: inline-block; */
+    /* width: 450px; */
+    /* height: auto; */
+    /* z-index: 0; */
     /* margin-left: -150px; */
 }
 
-#content {
-    width: 500px;
-    height: 500px;
-    background-color: orange;
-    display: inline-block;
+.btn_container {
+    height: 70px;
+    padding-top: 13px;
+    /* width: 500px;*/
+    /* height: 90vh; */
+    background-color: gray;
+    /* display: inline-block; */
     /* margin-right: 170px; */
     /* float: left; */
 }
@@ -40,7 +311,7 @@ div {
     cursor: default;
 }
 
-li:hover {
+/* li:hover {
     color: white;
     background-color: cornflowerblue;
-}
+} */

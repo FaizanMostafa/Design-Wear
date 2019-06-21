@@ -6,52 +6,75 @@
 
 
 {% block content %}
-    <div id="listContainer" style="display: inline;">
-        <div id="content">
-            <h2>Customize Your Shirt's Fabric</h2>
-            <ul class="fli">
-                <li class="fli" OnClick=ShowBaseFabrics()>BASE FABRIC</li>
-                <li class="fli" OnClick=ShowOuterCollar()>OUTER COLLAR</li>
-                <li class="fli" OnClick=ShowInnerCollar()>INNER COLLAR</li>
-                <li class="fli" OnClick=ShowOuterCuff()>OUTER CUFFS</li>
-                <li class="fli" OnClick=ShowInnerCuff()>INNER CUFFS</li>
-                <li class="fli" OnClick=ShowInnerPlacket()>INNER PLACKET</li>
-            </ul>
-            <button OnClick=getSecondMenuContent()>Continue Styling</button>
+    <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="row col-lg-10">
+            <div class="col-5">
+                <div id="listContainer" class="col" style="background-color: orange;">
+                    <div id="content">
+                        <div>
+                            <h2>Customize Your Shirt's Fabric</h2>
+                            <ul class="fli">
+                                <li class="fli" OnClick=ShowBaseFabrics()><div id="base-fabric-icon" class="sprite-icons sprite1"></div> BASE FABRIC</li>
+                                <li class="fli" OnClick=ShowOuterCollar()><div id="outer-collar-icon" class="sprite-icons sprite1"></div> OUTER COLLAR</li>
+                                <li class="fli" OnClick=ShowInnerCollar()><div id="inner-collar-icon" class="sprite-icons sprite1"></div> INNER COLLAR</li>
+                                <li class="fli" OnClick=ShowOuterCuff()><div id="outer-cuff-icon" class="sprite-icons sprite1"></div> OUTER CUFFS</li>
+                                <li class="fli" OnClick=ShowInnerCuff()><div id="inner-cuff-icon" class="sprite-icons sprite1"></div> INNER CUFFS</li>
+                                <li class="fli" OnClick=ShowInnerPlacket()><div id="inner-placket-icon" class="sprite-icons sprite1"></div> INNER PLACKET</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col btn_container">
+                    <div id="btns_div">
+                        <button class="float-right btn btn-primary" OnClick=getSecondMenuContent()>Continue Styling</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-7" style="background-color: blueviolet; height: 30vh;">
+                <div class="box container-div col">
+                    <div class="content">
+                        <img id="background" class="img-div" src="{{ background.background.url }}">
+                        <img id="left-shoulder" class="img-div" src="{{ base.l_shoulder.url }}">
+                        <img id="right-shoulder" class="img-div" src="{{ base.r_shoulder.url }}">
+                        <img id="left-front" class="img-div" src="{{ base.l_front.url }}">
+                        <img id="right-front" class="img-div" src="{{ base.r_front.url }}">
+                        <img id="left-collar-base" class="img-div" src="{{ collar_base.l_base.url }}">
+                        <img id="right-collar-base" class="img-div" src="{{ collar_base.r_base.url }}">
+                        <img id="yoke-top" class="img-div" src="{{ yoke.top.url }}">
+                        <img id="yoke-bottom" class="img-div" src="{{ yoke.bottom.url }}">
+                        <img id="inner-placket" class="img-div" src="{{ inner_placket.inner.url }}">
+                        <img id="outer-placket" class="img-div" src="{{ outer_placket.outer.url }}">
+                        <img id="inner-collar" class="img-div" src="{{ inner_collar.inner.url }}">
+                        <img id="upper-collar" class="img-div" src="{{ outer_collar.upper.url }}">
+                        <img id="outer-right-collar" class="img-div" src="{{ outer_collar.outer_r.url }}">
+                        <img id="outer-left-collar" class="img-div" src="{{ outer_collar.outer_l.url }}">
+                        <img id="inner-cuff" class="img-div" src="{{ inner_cuff.inner.url }}">
+                        <img id="outer-top-cuff" class="img-div" src="{{ outer_cuff.top.url }}">
+                        <img id="outer-bottom-cuff" class="img-div" src="{{ outer_cuff.bottom.url }}">
+                        <img id="pocket" class="img-div" src="{{ pocket.pocket.url }}">
+                        <img id="collar-button-holes" class="img-div" src="{{ buttons.button_holes.button.url }}">
+                        <img id="base-button" class="img-div" src="{{ buttons.base_button.button.url }}">
+                        <img id="cuff-button" class="img-div" src="{{ buttons.cuff_button.button.url }}">
+                        <img id="collar-button" class="img-div" src="{{ buttons.collar_button.button.url }}">
+                        <form id="shirtSpecsForm" style="visibility:hidden" action="{% url 'carts:add_item' %}" method="POST">
+                            {% csrf_token %}
+                            <input id="basePattern" name="basePattern" type="hidden">
+                            <input id="outerCollarPattern" name="outerCollarPattern" type="hidden">
+                            <input id="innerCollarPattern" name="innerCollarPattern" type="hidden">
+                            <input id="collarDesign" name="collarDesign" type="hidden">
+                            <input id="outerCuffPattern" name="outerCuffPattern" type="hidden">
+                            <input id="innerCuffPattern" name="innerCuffPattern" type="hidden">
+                            <input id="cuffDesign" name="cuffDesign" type="hidden">
+                            <input id="innerPlacketPattern" name="innerPlacketPattern" type="hidden">
+                            <input id="outerPlacketPattern" name="outerPlacketPattern" type="hidden">
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
+        <div class="col-lg-1"></div>
     </div>
-    <div style="height:500px; width:400px; display:inline;">
-        <img id="background" class="img-container" src="{{ background.background.url }}">
-        <img id="left-shoulder" class="img-container" src="{{ base.l_shoulder.url }}">
-        <img id="right-shoulder" class="img-container" src="{{ base.r_shoulder.url }}">
-        <img id="left-front" class="img-container" src="{{ base.l_front.url }}">
-        <img id="right-front" class="img-container" src="{{ base.r_front.url }}">
-        <img id="left-collar-base" class="img-container" src="{{ collar_base.l_base.url }}">
-        <img id="right-collar-base" class="img-container" src="{{ collar_base.r_base.url }}">
-        <img id="yoke-top" class="img-container" src="{{ yoke.top.url }}">
-        <img id="yoke-bottom" class="img-container" src="{{ yoke.bottom.url }}">
-        <img id="inner-placket" class="img-container" src="{{ inner_placket.inner.url }}">
-        <img id="outer-placket" class="img-container" src="{{ outer_placket.outer.url }}">
-        <img id="inner-collar" class="img-container" src="{{ inner_collar.inner.url }}">
-        <img id="upper-collar" class="img-container" src="{{ outer_collar.upper.url }}">
-        <img id="outer-right-collar" class="img-container" src="{{ outer_collar.outer_r.url }}">
-        <img id="outer-left-collar" class="img-container" src="{{ outer_collar.outer_l.url }}">
-        <img id="inner-cuff" class="img-container" src="{{ inner_cuff.inner.url }}">
-        <img id="outer-top-cuff" class="img-container" src="{{ outer_cuff.top.url }}">
-        <img id="outer-bottom-cuff" class="img-container" src="{{ outer_cuff.bottom.url }}">
-    </div>
-    <form id="shirtSpecsForm" style="visibility:hidden" action="{% url 'carts:add_item' %}" method="POST">
-        {% csrf_token %}
-        <input id="basePattern" name="basePattern" type="hidden">
-        <input id="outerCollarPattern" name="outerCollarPattern" type="hidden">
-        <input id="innerCollarPattern" name="innerCollarPattern" type="hidden">
-        <input id="collarDesign" name="collarDesign" type="hidden">
-        <input id="outerCuffPattern" name="outerCuffPattern" type="hidden">
-        <input id="innerCuffPattern" name="innerCuffPattern" type="hidden">
-        <input id="cuffDesign" name="cuffDesign" type="hidden">
-        <input id="innerPlacketPattern" name="innerPlacketPattern" type="hidden">
-        <input id="outerPlacketPattern" name="outerPlacketPattern" type="hidden">
-    </form>
     <script>
         var GetPatternUrl = "{% url 'shirts:get_base_pattern' %}"
         var GetOuterCollarPatternUrl = "{% url 'shirts:get_outer_collar_pattern' %}"
@@ -65,5 +88,6 @@
         var GetInnerOpenedCuffUrl = "{% url 'shirts:get_inner_opened_cuff' %}"
         var GetInnerClosedCuffUrl = "{% url 'shirts:get_inner_closed_cuff' %}"
         var GetAddItemToCartUrl = "{% url 'carts:add_item' %}"
+        var GetPocketUrl = "{% url 'shirts:get_pocket' %}"
     </script>
 {% endblock content %}

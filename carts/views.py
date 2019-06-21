@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse, Http404
 from . models import Cart, Item
 from shirts.models import Shirt, Creator, Background, Pattern
 from django.utils.crypto import get_random_string
@@ -71,15 +72,12 @@ def get_cart(request):
         cart = Cart.objects.create(
             user=request.user
         )
-    creators = Creator.objects.all().filter(user=request.user)
-    shirts = []
-    for creator in creators:
-        shirts.append(creator.shirt)
+    items = Item.objects.all().filter(cart=cart, ordered=False).order_by('-shirt__created_on')
     background = Background.objects.all().first()
     context = {
         'background': background.background,
         'cart': cart,
-        'shirts': shirts,
+        'items': items,
     }
     return render(request, 'carts/cart.html', context)
 
@@ -87,4 +85,30 @@ def get_cart(request):
 def remove_item(request, pk):
     shirt = Shirt.objects.all().filter(pk=pk)
     shirt.delete()
+    return redirect('carts:get_cart')
+
+@login_required
+def update_item_size(request):
+    id = request.GET.get('id')
+    size = request.GET.get('size')
+    item = Item.objects.all().filter(shirt_id=id).first()
+    item.size = size
+    item.save()
+    return HttpResponse(200)
+
+@login_required
+def update_item_fitting(request):
+    id = request.GET.get('id')
+    fitting = request.GET.get('fitting')
+    item = Item.objects.all().filter(shirt_id=id).first()
+    item.fitting = fitting
+    item.save()
+    return HttpResponse(200)
+
+@login_required
+def update_item_quantity(request, pk):
+    quantity = request.POST.get('quantity')
+    item = Item.objects.all().filter(pk=pk).first()
+    item.quantity = quantity
+    item.save()
     return redirect('carts:get_cart')

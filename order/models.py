@@ -10,10 +10,12 @@ class Order(models.Model):
         ('CNF', 'CONFIRMED'),
         ('INP', 'IN PROGRESS'),
         ('DSP', 'DISPACHED'),
+        ('CMP', 'COMPLETED'),
     )
     order_id = models.CharField(max_length=32, default='')
     date = models.DateTimeField(auto_now=True)
     status = models.CharField(max_length=3, choices=STATUS_CHOICES, default='PND')
+    items = models.IntegerField(default=0)
     amount = models.IntegerField(default=0)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 

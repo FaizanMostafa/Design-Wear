@@ -8,7 +8,8 @@ from carts.models import Cart
 from . models import (
     Pattern, Base, InnerCollar, OuterCollar,
     InnerCuff, OuterCuff, Yoke, Background,
-    CollarBase, Shirt, Creator
+    CollarBase, Shirt, Creator, BaseButton,
+    CollarButton, CuffButton,
 )
 
 # Create your views here.
@@ -22,6 +23,10 @@ def design(request):
     collar_base = pattern.collar_base.all().filter(opened=False).first()
     inner_cuff = pattern.inner_cuff.all().filter(catagory="RR", opened=False).first()
     outer_cuff = pattern.outer_cuff.all().filter(catagory="RR", opened=False).first()
+    base_button = BaseButton.objects.get(color="b1")
+    collar_button = CollarButton.objects.all().filter(color="b1", catagory="RR", opened=False).first()
+    button_holes = CollarButton.objects.all().filter(color="b1", catagory="RR", opened=True).first()
+    cuff_button = CuffButton.objects.all().filter(color="b1", catagory="RR", opened=False).first()
     cont = {
         "background": background,
         "base": pattern.base,
@@ -31,6 +36,12 @@ def design(request):
         "outer_collar": outer_collar,
         "inner_collar": inner_collar,
         "collar_base": collar_base,
+        "buttons": {
+            "base_button": base_button,
+            "collar_button": collar_button,
+            "button_holes": button_holes,
+            "cuff_button": cuff_button
+        },
         "outer_cuff": outer_cuff,
         "inner_cuff": inner_cuff,
     }
@@ -100,6 +111,13 @@ def get_outer_collar_design(request):
     collar_base = pattern.collar_base.filter(opened=False).first()
     outer_collar = pattern.outer_collar.all().filter(catagory=catagory, opened=False).first()
     inner_collar = icollar_pattern.inner_collar.all().filter(catagory=catagory, opened=False).first()
+    if catagory == "PH":
+        button_holes = CollarButton.objects.all().filter(color=request.GET.get('button'), catagory=catagory, opened=False).first()
+    else:
+        button_holes = CollarButton.objects.all().filter(color="b1", catagory="RR", opened=True).first()
+    if catagory not in ["DB", "RB"]:
+        catagory = "RR"
+    collar_button = CollarButton.objects.all().filter(color=request.GET.get('button'), catagory=catagory, opened=False).first()
     data = {
         "left_collar_base": collar_base.l_base.url,
         "right_collar_base": collar_base.r_base.url,
@@ -108,6 +126,8 @@ def get_outer_collar_design(request):
         "outer_left_collar": outer_collar.outer_l.url,
         "outer_collar_pattern": outer_collar.pattern.name,
         "inner_collar": inner_collar.inner.url,
+        "button": collar_button.button.url,
+        "button_holes": button_holes.button.url,
         "collar_catagory": catagory
     }
     return JsonResponse(data)
@@ -159,6 +179,11 @@ def get_outer_placket(request):
     inner_collar = icollar_pattern.inner_collar.all().filter(catagory=(request.GET.get('collar_catagory')), opened=True).first()
     outer_collar = ocollar_pattern.outer_collar.all().filter(catagory=(request.GET.get('collar_catagory')), opened=True).first()
     outer_placket = pattern.outer_placket.all().filter(opened=True).first()
+    catagory = request.GET.get('collar_catagory')
+    if catagory not in ["DB", "RB"]:
+        catagory = "RR"
+    button_holes = CollarButton.objects.all().filter(color="b1", catagory="RR", opened=True).first()
+    collar_button = CollarButton.objects.all().filter(color=request.GET.get('button'), catagory=catagory, opened=True).first()
     data = {
         "left_collar_base": collar_base.l_base.url,
         "right_collar_base": collar_base.r_base.url,
@@ -167,6 +192,8 @@ def get_outer_placket(request):
         "outer_placket": outer_placket.outer.url,
         "inner_collar": inner_collar.inner.url,
         "upper_collar": outer_collar.upper.url,
+        "collar_button": collar_button.button.url,
+        "button_holes": button_holes.button.url,
         "outer_right_collar": outer_collar.outer_r.url,
         "outer_left_collar": outer_collar.outer_l.url,
     }
@@ -183,10 +210,12 @@ def get_outer_folded_cuff(request):
     inner_cuff = icuff_pattern.inner_cuff.all().filter(catagory=(request.GET.get('catagory')), opened=True).first()
     outer_top_cuff = icuff_pattern.outer_cuff.all().filter(catagory=(request.GET.get('catagory')), opened=True).first()
     outer_bottom_cuff = ocuff_pattern.outer_cuff.all().filter(catagory=(request.GET.get('catagory')), opened=True).first()
+    cuff_button = CuffButton.objects.all().filter(color=request.GET.get('button_color'), catagory=request.GET.get('catagory'), opened=True).first()
     data = {
         "inner_cuff": inner_cuff.inner.url,
         "outer_top_cuff": outer_top_cuff.top.url,
         "outer_bottom_cuff": outer_bottom_cuff.bottom.url,
+        "cuff_button": cuff_button.button.url,
     }
     return JsonResponse(data)
 
@@ -211,10 +240,12 @@ def get_outer_cuff_design(request):
     catagory = request.GET.get('catagory')
     outer_cuff = ocuff_pattern.outer_cuff.all().filter(catagory=catagory, opened=False).first()
     inner_cuff = icuff_pattern.inner_cuff.all().filter(catagory=catagory, opened=False).first()
+    cuff_button = CuffButton.objects.all().filter(color=request.GET.get('button_color'), catagory=request.GET.get('catagory'), opened=False).first()
     data = {
         "outer_top_cuff": outer_cuff.top.url,
         "outer_bottom_cuff": outer_cuff.bottom.url,
         "inner_cuff": inner_cuff.inner.url,
+        "cuff_button": cuff_button.button.url,
         "cuff_design": catagory,
     }
     return JsonResponse(data)
@@ -240,5 +271,17 @@ def get_inner_closed_cuff(request):
     inner_cuff = icuff_pattern.inner_cuff.all().filter(catagory=(request.GET.get('catagory')), opened=False).first()
     data = {
         "inner_cuff": inner_cuff.inner.url,
+    }
+    return JsonResponse(data)
+
+def get_pocket(request):
+    base_pattern = get_object_or_404(Pattern, name=(request.GET.get('pattern')))
+    visible = request.GET.get('visible')
+    print("\n", base_pattern, "\n")
+    print("\n", visible, "\n")
+    pocket = base_pattern.pocket.all().filter(visible=visible).first()
+    data = {
+        "pocket": pocket.pocket.url,
+        "visible": visible,
     }
     return JsonResponse(data)

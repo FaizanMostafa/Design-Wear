@@ -38,3 +38,7 @@ html, body{
 #exampleModalCenter {
   font-size: initial;
 }
+
+#listContainer {
+  height: 75vh;
+}

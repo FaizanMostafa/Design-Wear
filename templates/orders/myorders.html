@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load order_filters %}
+{% block title %}
+    My Orders
+{% endblock title %}
+
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-10">
+
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="my-4 alert alert-success alert-dismissible fade show">
+                        <strong>Success!</strong> {{message}}
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            {% if orders %}
+                {% for order in orders %}
+                    <div style="border-width: 3px;" class="my-4 card text-center">
+                        <div class="card-body">
+                            {% comment %} <h5 class="card-title">Order Id: {{order.id}}</h5> {% endcomment %}
+                            <p class="card-text">
+                                <table class="table table-borderless">
+                                    <tbody>
+                                        <tr>
+                                            <td><p class="lead d-inline">Order Id:</p> {{order.id}}</td>
+                                            <td><p class="lead d-inline">Order Items:</p> {{order.items}}</td>
+                                            <td><p class="lead d-inline">Order Date:</p> {{order.date|date}}</td>
+                                            <td><p class="lead d-inline">Order Status:</p> {{order.status|order_abbr}}</td>
+                                            <td><p class="lead d-inline">Order Amount: $</p>{{order.amount}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </p>
+                        </div>
+                        <div class="card-footer text-muted">
+                            Ordered {{order.date|timesince}} ago
+                        </div>
+                    </div>
+                    <hr style="margin: 2.5vw 0vw">
+                {% endfor %}
+            {% else %}
+                <h1>You haven't ordered anything yet!</h1>
+            {% endif %}
+        </div>
+        <div class="col-md-1">
+        </div>
+    </div>
+{% endblock content%}

@@ -91,6 +91,7 @@ function loadOuterCollarDesign(ev) {
         'fabric': outerCollarPattern,
         'icollar_pattern': innerCollarPattern,
         'catagory': ev.target.id,
+        'button': buttonColor,
         // csrfmiddlewaretoken: "$('input[name=csrfmiddlewaretoken]').val()",
         },
         dataType: 'json',
@@ -101,6 +102,8 @@ function loadOuterCollarDesign(ev) {
            document.getElementById("inner-collar").src = data.inner_collar;
            document.getElementById("outer-right-collar").src = data.outer_right_collar;
            document.getElementById("outer-left-collar").src = data.outer_left_collar;
+           document.getElementById("collar-button").src = data.button;
+           document.getElementById("collar-button-holes").src = data.button_holes;
            collarDesign = data.collar_catagory;
         }
     });
@@ -133,6 +136,7 @@ function loadOuterPlacket() {
         'inner_collar_pattern': innerCollarPattern,
         'outer_collar_pattern': outerCollarPattern,
         'collar_catagory': collarDesign,
+        "button": buttonColor,
         // csrfmiddlewaretoken: "$('input[name=csrfmiddlewaretoken]').val()",
         },
         dataType: 'json',
@@ -146,6 +150,9 @@ function loadOuterPlacket() {
            document.getElementById("upper-collar").src = data.upper_collar;
            document.getElementById("outer-right-collar").src = data.outer_right_collar;
            document.getElementById("outer-left-collar").src = data.outer_left_collar;
+           document.getElementById("collar-button").src = data.outer_left_collar;
+           document.getElementById("collar-button").src = data.collar_button;
+           document.getElementById("collar-button-holes").src = data.button_holes;
         }
     });
 }
@@ -175,6 +182,7 @@ function loadOuterFoldedCuff(ev) {
         'base_pattern': basePattern,
         'inner_cuff_pattern': innerCuffPattern,
         'outer_cuff_pattern': outerCuffPattern,
+        'button_color': buttonColor,
         // csrfmiddlewaretoken: "$('input[name=csrfmiddlewaretoken]').val()",
         },
         dataType: 'json',
@@ -182,6 +190,7 @@ function loadOuterFoldedCuff(ev) {
            document.getElementById("inner-cuff").src = data.inner_cuff;
            document.getElementById("outer-top-cuff").src = data.outer_top_cuff;
            document.getElementById("outer-bottom-cuff").src = data.outer_bottom_cuff;
+           document.getElementById("cuff-button").src = data.cuff_button;
         }
     });
 }
@@ -213,6 +222,7 @@ function loadOuterCuffDesign(ev) {
         'catagory': ev.target.id,
         'outer_cuff_pattern': outerCuffPattern,
         'inner_cuff_pattern': innerCuffPattern,
+        'button_color': buttonColor,
         // csrfmiddlewaretoken: "$('input[name=csrfmiddlewaretoken]').val()",
         },
         dataType: 'json',
@@ -220,7 +230,25 @@ function loadOuterCuffDesign(ev) {
            document.getElementById("outer-top-cuff").src = data.outer_top_cuff;
            document.getElementById("outer-bottom-cuff").src = data.outer_bottom_cuff;
            document.getElementById("inner-cuff").src = data.inner_cuff;
+           document.getElementById("cuff-button").src = data.cuff_button;
            cuffDesign = data.cuff_design;
+        }
+    });
+}
+
+function loadPocket(ev) {
+    $.ajax({
+        type: 'GET',
+        url: GetPocketUrl,
+        data: {
+        'pattern': basePattern,
+        'visible': ev.target.querySelector('input').value,
+        // csrfmiddlewaretoken: "$('input[name=csrfmiddlewaretoken]').val()",
+        },
+        dataType: 'json',
+        success: function (data) {
+           document.getElementById("pocket").src = data.pocket;
+           pocket = data.visible;
         }
     });
 }
@@ -271,30 +299,39 @@ function postShirtSpecs() {
     document.getElementById("outerPlacketPattern").value = outerPlacketPattern;
     form = document.getElementById('shirtSpecsForm');
     form.submit();
-    // $.ajax({
-    //     type: 'GET',
-    //     url: GetPostShirtSpecsUrl,
-    //     data: {
-    //         'basePattern': basePattern,
-    //         'outerCollarPattern': outerCollarPattern,
-    //         'innerCollarPattern': innerCollarPattern,
-    //         'collarDesign': collarDesign,
-    //         'outerCuffPattern': outerCuffPattern,
-    //         'innerCuffPattern': innerCuffPattern,
-    //         'cuffDesign': cuffDesign,
-    //         'innerPlacketPattern': innerPlacketPattern,
-    //         'outerPlacketPattern': outerPlacketPattern
-    //     // csrfmiddlewaretoken: "$('input[name=csrfmiddlewaretoken]').val()",
-    //     },
-    //     dataType: 'json',
-    //     success: function (data) {
-    //         console.log("Response");
-    //         console.log(data);
-    //         window.location = data;
-    //     }
-    // });
 }
 
+function shirtSizeChanged(e) {
+    shirt_id = e.target.parentNode.parentNode.parentNode.parentNode.parentNode.id;
+    size = e.target.value;
+    $.ajax({
+        type: 'GET',
+        url: GetShirtSizeUpdateUrl,
+        data: {
+        'id': shirt_id,
+        'size': size,
+        },
+        dataType: 'json',
+        success: function (data) {
+        }
+    });
+}
+
+function shirtFittingChanged(e) {
+    shirt_id = e.target.parentNode.parentNode.parentNode.parentNode.parentNode.id;
+    fitting = e.target.value;
+    $.ajax({
+        type: 'GET',
+        url: GetShirtFittingUpdateUrl,
+        data: {
+        'id': shirt_id,
+        'fitting': fitting,
+        },
+        dataType: 'json',
+        success: function (data) {
+        }
+    });
+}
 
 // var key = document.getElementById('fabrics');
 // key.addEventListener('click', (e) => {

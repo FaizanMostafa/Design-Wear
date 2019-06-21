@@ -135,10 +135,48 @@ class InnerCuff(models.Model):
         return self.pattern.name + " catagory: " + self.catagory + " opened: " + str(self.opened)
     
 class Pocket(models.Model):
-    pass
+    pocket = models.ImageField(upload_to="pockets/")
+    visible = models.BooleanField(default=False)
+    pattern = models.ForeignKey(Pattern, related_name="pocket", on_delete=models.CASCADE)
 
-class Button(models.Model):
-        pass
+    def __str__(self):
+        return "pattern: " + str(self.pattern) + " visible: " + str(self.visible)
+
+class BaseButton(models.Model):
+    color = models.CharField(max_length=32)
+    button = models.ImageField(upload_to="base_buttons/")
+
+    def __str__(self):
+        return self.color
+
+class CollarButton(models.Model):
+    CATAGORY_CHOICES = (
+        ('RR', 'Regular'),
+        ('DB', 'Dual Button'),
+        ('RB', 'Round Button Down'),
+        ('PH', 'Pinhole'),
+    )
+    color = models.CharField(max_length=32)
+    button = models.ImageField(upload_to="collar_buttons/")
+    catagory = models.CharField(max_length=2, choices=CATAGORY_CHOICES, default='RR')
+    opened = models.BooleanField(default=False)
+
+class CuffButton(models.Model):
+    CATAGORY_CHOICES = (
+        ('AA', 'Angle'),
+        ('BA', 'Big Angle'),
+        ('BR', 'Big Round'),
+        ('FR', 'French'),
+        ('RR', 'Round'),
+        ('SQ', 'Square'),
+    )
+    color = models.CharField(max_length=32)
+    button = models.ImageField(upload_to="cuff_buttons/")
+    catagory = models.CharField(max_length=2, choices=CATAGORY_CHOICES, default='RR')
+    opened = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.color + " catagory: " + self.catagory + " opened: " + str(self.opened)
 
 class Shirt(models.Model):
     base = models.ForeignKey(Base, related_name="base", on_delete=models.CASCADE)

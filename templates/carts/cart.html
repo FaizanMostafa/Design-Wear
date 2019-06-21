@@ -11,79 +11,113 @@
         <div class="row">
             <div class="col-md-2 col-lg-1"></div>
             <div class="col-md row">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="my-4 col-12 alert alert-danger alert-dismissible fade show">
+                        <strong>Error!</strong> {{message}}
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    </div>
+                {% endfor %}
+            {% endif %}
                 <div class="col-md-12 col-lg-7">
-                    {% for shirt in shirts %}
-                        <div class="row" style="padding:5px;">
+                    <br>
+                    {% for item in items %}
+                        <div id="{{item.shirt.id}}" class="row" style="padding:5px;">
                             <div class="col-5 my-auto" style="padding:0em 0.25em 0em 0em;">
                                 <div class="box container-div col">
                                     <div class="content">
-                                        <img class="img-div index2" src="{{ shirt.outer_collar.outer_r.url }}" alt="OuterCollerLeft">
-                                        <img class="img-div index2" src="{{ shirt.outer_collar.outer_l.url }}" alt="OuterCollerRight">
-                                        <img class="img-div index1" src="{{ shirt.outer_collar.upper.url }}" alt="UpperColler">
-                                        <img class="img-div index1" src="{{ shirt.inner_collar.inner.url }}" alt="InnerColler">
-                                        <img class="img-div index0" src="{{ shirt.yoke.top.url }}" alt="YokeTop">
-                                        <img class="img-div index0" src="{{ shirt.yoke.bottom.url }}" alt="YokeBottom">
-                                        <img class="img-div index1" src="{{ shirt.collar_base.l_base.url }}" alt="CollarLeftBase">
-                                        <img class="img-div index0" src="{{ shirt.collar_base.r_base.url }}" alt="CollarRightBase">
-                                        <img class="img-div index1" src="{{ shirt.base.r_shoulder.url }}" alt="UpperRightShoulder">
-                                        <img class="img-div index1" src="{{ shirt.base.l_shoulder.url }}" alt="UpperLeftShoulder">
-                                        <img class="img-div index1" src="{{ shirt.base.r_front.url }}" alt="RightFront">
-                                        <img class="img-div index1" src="{{ shirt.base.l_front.url }}" alt="LeftFront">
+                                        <img class="img-div index2" src="{{ item.shirt.outer_collar.outer_r.url }}" alt="OuterCollerLeft">
+                                        <img class="img-div index2" src="{{ item.shirt.outer_collar.outer_l.url }}" alt="OuterCollerRight">
+                                        <img class="img-div index1" src="{{ item.shirt.outer_collar.upper.url }}" alt="UpperColler">
+                                        <img class="img-div index1" src="{{ item.shirt.inner_collar.inner.url }}" alt="InnerColler">
+                                        <img class="img-div index0" src="{{ item.shirt.yoke.top.url }}" alt="YokeTop">
+                                        <img class="img-div index0" src="{{ item.shirt.yoke.bottom.url }}" alt="YokeBottom">
+                                        <img class="img-div index1" src="{{ item.shirt.collar_base.l_base.url }}" alt="CollarLeftBase">
+                                        <img class="img-div index0" src="{{ item.shirt.collar_base.r_base.url }}" alt="CollarRightBase">
+                                        <img class="img-div index1" src="{{ item.shirt.base.r_shoulder.url }}" alt="UpperRightShoulder">
+                                        <img class="img-div index1" src="{{ item.shirt.base.l_shoulder.url }}" alt="UpperLeftShoulder">
+                                        <img class="img-div index1" src="{{ item.shirt.base.r_front.url }}" alt="RightFront">
+                                        <img class="img-div index1" src="{{ item.shirt.base.l_front.url }}" alt="LeftFront">
                                         <img class="img-div index0" src="{{ background.url }}" alt="Background">
-                                        <img class="img-div index2" src="{{ shirt.outer_placket.outer.url }}" alt="OuterPlacket">
-                                        <img class="img-div index2" src="{{ shirt.outer_cuff.top.url }}" alt="UpperCuff">
-                                        <img class="img-div index2" src="{{ shirt.outer_cuff.bottom.url }}" alt="LowerCuff">
-                                        <img class="img-div index2" src="{{ shirt.inner_cuff.inner.url }}" alt="InnerCuff">
+                                        <img class="img-div index2" src="{{ item.shirt.outer_placket.outer.url }}" alt="OuterPlacket">
+                                        <img class="img-div index2" src="{{ item.shirt.outer_cuff.top.url }}" alt="UpperCuff">
+                                        <img class="img-div index2" src="{{ item.shirt.outer_cuff.bottom.url }}" alt="LowerCuff">
+                                        <img class="img-div index2" src="{{ item.shirt.inner_cuff.inner.url }}" alt="InnerCuff">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-7 my-auto">
-                                <br><b>Men's Custom Shirt</b><br>
-                                <fieldset>
-                                    <b>Sizes:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
-                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                        <label class="btn btn-secondary">
-                                            <input type="radio" name="sizes" id="option1" value="s" autocomplete="off"> S
-                                        </label>
-                                        <label class="btn btn-secondary">
-                                            <input type="radio" name="sizes" id="option2" value="m" autocomplete="off"> M
-                                        </label>
-                                        <label class="btn btn-secondary active">
-                                            <input type="radio" name="sizes" id="option3" value="l" autocomplete="off"
-                                                checked> L
-                                        </label>
-                                        <label class="btn btn-secondary">
-                                            <input type="radio" name="sizes" id="option4" value="xl" autocomplete="off"> XL
-                                        </label>
-                                        <label class="btn btn-secondary">
-                                            <input type="radio" name="sizes" id="option5" value="xxl" autocomplete="off">
-                                            XXL
-                                        </label>
-                                    </div>
-                                </fieldset>
-                                <br>
-                                <fieldset>
-                                    <b>Fittings:&nbsp;&nbsp;</b>
-                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                        <label class="btn btn-secondary">
-                                            <input type="radio" name="fittings" id="option1" autocomplete="off"> Slim
-                                        </label>
-                                        <label class="btn btn-secondary active">
-                                            <input type="radio" name="fittings" id="option2" autocomplete="off" checked>
-                                            Regular
-                                        </label>
-                                        <label class="btn btn-secondary">
-                                            <input type="radio" name="fittings" id="option3" autocomplete="off"> Relaxed
-                                        </label>
-                                    </div>
-                                </fieldset>
-                                <b>Price: {{shirt.price}}$</b><br>
-                                <b>Qty: 1</b><br><br>
+                                <b><p class="lead">Men's Custom Shirt</p></b>
+                                        <fieldset style="margin: 0.4vw 0vw">
+                                            <p class="lead d-inline">Sizes:</p>
+                                            <div class="btn-group btn-group-toggle float-right sizes" data-toggle="buttons">
+                                                <label class="btn btn-primary {% if item.size == "SM" %}active{% endif %}">
+                                                    <input type="radio" name="sizes" id="option1" value="SM" autocomplete="off"
+                                                        {% if item.size == "SM" %}checked{% endif %}
+                                                    > S
+                                                </label>
+                                                <label class="btn btn-primary {% if item.size == "MD" %}active{% endif %}">
+                                                    <input type="radio" name="sizes" id="option2" value="MD" autocomplete="off"
+                                                        {% if item.size == "MD" %}checked{% endif %}
+                                                    > M
+                                                </label>
+                                                <label class="btn btn-primary {% if item.size == "LG" %}active{% endif %}">
+                                                    <input type="radio" name="sizes" id="option3" value="LG" autocomplete="off"
+                                                        {% if item.size == "LG" %}checked{% endif %}
+                                                    > L
+                                                </label>
+                                                <label class="btn btn-primary {% if item.size == "XL" %}active{% endif %}">
+                                                    <input type="radio" name="sizes" id="option4" value="XL" autocomplete="off"
+                                                        {% if item.size == "XL" %}checked{% endif %}
+                                                    > XL
+                                                </label>
+                                                <label class="btn btn-primary {% if item.size == "XX" %}active{% endif %}">
+                                                    <input type="radio" name="sizes" id="option5" value="XX" autocomplete="off"
+                                                        {% if item.size == "XX" %}checked{% endif %}
+                                                    > XXL
+                                                </label>
+                                            </div>
+                                        </fieldset>
+                                        <fieldset style="margin: 0.4vw 0vw">
+                                            <p class="lead d-inline">Fittings:</p>
+                                            <div class="btn-group btn-group-toggle float-right fittings" data-toggle="buttons">
+                                                <label class="btn btn-primary {% if item.fitting == "SLM" %}active{% endif %}">
+                                                    <input type="radio" name="fittings" id="option1" value="SLM" autocomplete="off"
+                                                        {% if item.fitting == "SLM" %}checked{% endif %}
+                                                    > Slim
+                                                </label>
+                                                <label class="btn btn-primary {% if item.fitting == "REG" %}active{% endif %}">
+                                                    <input type="radio" name="fittings" id="option2" value="REG" autocomplete="off"
+                                                        {% if item.fitting == "REG" %}checked{% endif %}
+                                                    > Regular
+                                                </label>
+                                                <label class="btn btn-primary {% if item.fitting == "RLX" %}active{% endif %}">
+                                                    <input type="radio" name="fittings" id="option3" value="RLX" autocomplete="off"
+                                                        {% if item.fitting == "RLX" %}checked{% endif %}
+                                                    > Relaxed
+                                                </label>
+                                            </div>
+                                        </fieldset>
+                                <p class="lead d-inline">Unit Price: </p><p class="lead d-inline text-right"><b>{{item.shirt.price}}</b>$</p><br>
+                                <p class="lead d-inline">Qty: </p>
+                                <form class="float-right col-8" id="quantityForm" action="{% url 'carts:update_item_quantity' item.pk %}" method="post">
+                                    {% csrf_token %}
+                                    <select name="quantity" class="form-control quantity">
+                                        <option value="1" {% if item.quantity == 1 %}selected{% endif %}>1</option>
+                                        <option value="2" {% if item.quantity == 2 %}selected{% endif %}>2</option>
+                                        <option value="3" {% if item.quantity == 3 %}selected{% endif %}>3</option>
+                                        <option value="4" {% if item.quantity == 4 %}selected{% endif %}>4</option>
+                                        <option value="5" {% if item.quantity == 5 %}selected{% endif %}>5</option>
+                                        <option value="6" {% if item.quantity == 6 %}selected{% endif %}>6</option>
+                                        <option value="7" {% if item.quantity == 7 %}selected{% endif %}>7</option>
+                                    </select>
+                                </form>
+                                <br><br>
                                 <b>
                                     <p class="text-center">
-                                        <a data-toggle="modal" data-target="#exampleModalCenter" style="cursor: pointer; text-decoration: none;">View Sizing</a> | 
+                                        <a href="" data-toggle="modal" data-target="#exampleModalCenter" style="cursor: pointer; text-decoration: none;">View Sizing </a>| 
                                         {% comment %} <a href="{% url 'shirts:edit_design' shirt.pk %}" style="cursor: pointer; text-decoration: none;">Edit Design</a> |  {% endcomment %}
-                                        <a href="{% url 'carts:remove_item' shirt.pk %}" style="cursor: pointer; text-decoration: none;">Remove</a>
+                                        <a href="{% url 'carts:remove_item' item.shirt.pk %}" style="cursor: pointer; text-decoration: none;">Remove</a>
                                     </p>
                                 </b>
                             </div>
@@ -93,12 +127,12 @@
                 </div>
                 <div class="col-md-12 col-lg-5" style="padding: 60px 0px 45px 45px;">
                     <div style="background-color:#F9FAFB; padding: 21px 21px 15px 21px; border-radius: 7px;">
-                        <h3 class="text-center" style="margin-bottom: 3.5vw;">Cart</h3>
+                        <h3 class="text-center" style="margin-bottom: 3.5vw;">Order Summary</h3>
                         <b>Shirts:</b><b class="float-right">{{cart.sub_total}}$</b><br>
                         <b>Shipping:</b><b class="float-right">{{cart.shipping}}$</b>
                         <hr>
                         <b>Total:</b><b class="float-right">{{cart.grand_total}}$</b>
-                        <a href="{% url 'orders:place' %}">
+                        <a style="text-decoration: none" href="{% url 'orders:place' %}">
                             <button style="margin-top: 10px;" class="btn btn-primary btn-lg btn-block">Checkout</button>
                         </a>
                     </div>
@@ -207,4 +241,19 @@
             </div>
         </div>
     </div>
+
+    <script type='text/javascript'>
+        var GetShirtSizeUpdateUrl = "{% url 'carts:update_item_size' %}";
+        var GetShirtFittingUpdateUrl = "{% url 'carts:update_item_fitting' %}";
+        $(".sizes").on('change', function(e){
+            shirtSizeChanged(e);
+        });
+        $(".fittings").on('change', function(e){
+            shirtFittingChanged(e);
+        });
+        $(".quantity").on('change', function(e){
+            form = e.target.parentNode;
+            form.submit()
+        });
+    </script>
 {% endblock content %}

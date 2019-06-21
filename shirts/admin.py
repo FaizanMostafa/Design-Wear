@@ -3,7 +3,9 @@ from . models import (
     Base, Pattern, InnerCollar,
     OuterCuff, Yoke, Background,
     InnerCuff, OuterCollar, OuterPlacket,
-    InnerPlacket, CollarBase, Shirt, Creator
+    InnerPlacket, CollarBase, Shirt, Creator,
+    BaseButton, CollarButton, CuffButton,
+    Pocket,
 )
 
 # class PatternBase(admin.AdminSite):
@@ -21,5 +23,9 @@ admin.site.register(InnerCuff)
 admin.site.register(OuterPlacket)
 admin.site.register(InnerPlacket)
 admin.site.register(CollarBase)
+admin.site.register(BaseButton)
+admin.site.register(CollarButton)
+admin.site.register(Pocket)
+admin.site.register(CuffButton)
 admin.site.register(Shirt)
 admin.site.register(Creator)

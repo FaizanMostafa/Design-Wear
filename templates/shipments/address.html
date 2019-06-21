@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Shipping Address
+{% endblock title %}
+
+{% block content %}
+    <div class="bg_cover" id="shipment_cover">
+        <!-- Default form register -->
+        {% block form_action_block %}
+        <form class="text-center col-md-5" method="POST" action={% url 'shipments:address' %}>
+        {% endblock form_action_block %}
+
+            <p class="h4 mb-4">Shipping Address</p>
+            {% csrf_token %}
+
+            <div class="form-row mb-4">
+                <div class="col">
+                    <!-- First name -->
+                    <input required type="text" name="FirstName" class="form-control" placeholder="First name" value={{address.first_name}}>
+                </div>
+                <div class="col">
+                    <!-- Last name -->
+                    <input required type="text" name="LastName" class="form-control" placeholder="Last name" value={{address.last_name}}>
+                </div>
+            </div>
+
+            <!-- Address Line 1 -->
+            <input required type="text" name="AddressL1" class="form-control mb-4" placeholder="Address line 1" value="{{address.address_line1}}">
+
+            <!-- Address Line 2 -->
+            <input type="text" name="AddressL2" class="form-control mb-4" placeholder="Address line 2" value="{{address.address_line2}}">
+
+            <div class="form-row mb-4">
+                <div class="col">
+                    <!-- State/Province -->
+                    <select name="StateProvince" class="form-control">
+                        <option>State/Province</option>
+                        <option {% if address.state_province == "PNJB" %}selected{% endif %}>Punjab</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <!-- City -->
+                    <select name="City" class="form-control">
+                        <option>City</option>
+                        <option {% if address.city == "TTS" %}selected{% endif %}>Toba Tek Singh</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row mb-4">
+                <div class="col">
+                    <!-- Zipcode -->
+                    <input required type="text" name="Zipcode" class="form-control" placeholder="Zipcode" value={{address.zipcode}}>
+                </div>
+                <div class="col">
+                    <!-- Country -->
+                    <select disabled name="Country" class="form-control">
+                        <option selected>Pakistan</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row mb-4">
+                <div class="col">
+                    <!-- Phone Number -->
+                    <input required type="text" name="PhoneNumber" class="form-control" placeholder="Contact Number" value={{address.contact_no}}>
+                </div>
+                <div class="col">
+                    <!-- Email -->
+                    <input required type="email" name="Email" class="form-control" placeholder="Email" value={{address.email}}>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-10">
+                    <!-- Update button -->
+                    <button class="btn btn-info btn-block" type="submit">
+                        {% if address %}
+                            Update Address
+                        {% else %}
+                            Add Address
+                        {% endif %}
+                    </button>
+                </div>
+                <div class="col-1"></div>
+            </div>
+        </form>
+        {% block payment_button_block %}
+        {% endblock payment_button_block %}
+    </div>
+{% endblock content %}
