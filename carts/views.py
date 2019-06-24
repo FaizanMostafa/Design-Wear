@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, Http404
 from . models import Cart, Item
-from shirts.models import Shirt, Creator, Background, Pattern
+from shirts.models import Shirt, Creator, Background, Pattern, BaseButton, CuffButton, CollarButton
 from django.utils.crypto import get_random_string
 import datetime
 
@@ -17,6 +17,10 @@ def add_item(request):
     cuff_catagory = request.POST.get('cuffDesign')
     iplacket_pattern = get_object_or_404(Pattern, name=request.POST.get('innerPlacketPattern'))
     oplacket_pattern = get_object_or_404(Pattern, name=request.POST.get('outerPlacketPattern'))
+    if request.POST.get('pocketLeft') == 'true':
+        visible = True
+    else:
+        visible = False
     if request.user.is_authenticated:
         shirt = Shirt.objects.create(
             base = base_pattern.base,
@@ -28,6 +32,10 @@ def add_item(request):
             inner_placket = iplacket_pattern.innerplacket,
             outer_cuff = ocuff_pattern.outer_cuff.all().filter(catagory=cuff_catagory, opened=False).first(),
             inner_cuff = icuff_pattern.inner_cuff.all().filter(catagory=cuff_catagory, opened=False).first(),
+            base_button = get_object_or_404(BaseButton, color=request.POST.get('button')),
+            cuff_button = CuffButton.objects.all().filter(color=request.POST.get('button'), catagory=cuff_catagory, opened=False).first(),
+            collar_button = CollarButton.objects.all().filter(color=request.POST.get('button'), catagory=collar_catagory, opened=False).first(),
+            pocket = base_pattern.pocket.all().filter(visible=visible).first(),
         )
         cart = Cart.objects.all().filter(user=request.user).first()
         if not cart:
@@ -60,6 +68,10 @@ def add_item(request):
             inner_placket = iplacket_pattern.innerplacket,
             outer_cuff = ocuff_pattern.outer_cuff.all().filter(catagory=cuff_catagory, opened=False).first(),
             inner_cuff = icuff_pattern.inner_cuff.all().filter(catagory=cuff_catagory, opened=False).first(),
+            base_button = get_object_or_404(BaseButton, color=request.POST.get('button')),
+            cuff_button = CuffButton.objects.all().filter(color=request.POST.get('button'), catagory=cuff_catagory, opened=False).first(),
+            collar_button = CollarButton.objects.all().filter(color=request.POST.get('button'), catagory=collar_catagory, opened=False).first(),
+            pocket = base_pattern.pocket.all().filter(visible=visible).first(),
             sess_id = session_id,
         )
         return redirect('accounts:login')

@@ -129,7 +129,50 @@
     background-position: -1019px 10px;
 }
 
+.collar-fabric-sprite1 {
+    height: 76px;
+    width: 120px; 
+    margin: 5px;
+    background-image: url("../icons/collar_fabric_sprite1.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
+.collar-fabric-sprite2 {
+    height: 76px;
+    width: 120px; 
+    margin: 5px;
+    background-image: url("../icons/collar_fabric_sprite2.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
+.collar-fabric-sprite3 {
+    height: 76px;
+    width: 120px; 
+    margin: 5px;
+    background-image: url("../icons/collar_fabric_sprite3.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
+.cuff-fabric-sprite1 {
+    height: 76px;
+    width: 120px; 
+    margin: 5px;
+    background-image: url("../icons/cuff_fabric_sprite1.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
 .base-fabric-sprite1 {
+    height: 76px;
+    width: 120px; 
+    margin: 5px;
     background-image: url("../icons/base_fabric_sprite.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
@@ -137,6 +180,9 @@
 }
 
 .base-fabric-sprite2 {
+    height: 76px;
+    width: 120px; 
+    margin: 5px;
     background-image: url("../icons/base_fabric_sprite2.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
@@ -144,6 +190,9 @@
 }
 
 .base-fabric-sprite3 {
+    height: 76px;
+    width: 120px; 
+    margin: 5px;
     background-image: url("../icons/base_fabric_sprite3.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
@@ -184,6 +233,398 @@
 
 #Bp9 {
     background-position: 0px -5548px;
+}
+
+#OCp1 { 
+    background-position: 0px -152px;
+}
+
+#OCp2 { 
+    background-position: 0px -7448px;
+}
+
+#OCp3 { 
+    background-position: 0px -379px;
+}
+
+#OCp4 { 
+    background-position: 0px -7752px;
+}
+
+#OCp5 { 
+    background-position: 0px -608px;
+}
+
+#OCp6 { 
+    background-position: 0px -77px;
+}
+
+#OCp7 { 
+    background-position: 0px -1672px;
+}
+
+#OCp8 { 
+    background-position: 0px -684px;
+}
+
+#OCp9 { 
+    background-position: 0px -456px;
+}
+
+#OCp10 { 
+    background-position: 0px -7828px;
+}
+
+#OCp11 { 
+    background-position: 0px -7524px;
+}
+
+#OCp12 { 
+    background-position: 0px -7600px;
+}
+
+#OCp13 { 
+    background-position: 0px -7296px;
+}
+
+#OCp14 { 
+    background-position: 0px -6840px;
+}
+
+#OCp15 { 
+    background-position: 0px -7372px;
+}
+
+#OCp16 { 
+    background-position: 0px -7220px;
+}
+
+#ICp1 { 
+    background-position: 0px -7752px;
+}
+
+#ICp2 { 
+    background-position: 0px -228px;
+}
+
+#ICp3 { 
+    background-position: 0px -379px;
+}
+
+#ICp4 { 
+    background-position: 0px -456px;
+}
+
+#ICp5 { 
+    background-position: 0px -532px;
+}
+
+#ICp6 { 
+    background-position: 0px -1445px;
+}
+
+#ICp7 { 
+    background-position: 0px -1672px;
+}
+
+#ICp8 { 
+    background-position: 0px -77px;
+}
+
+#ICp9 { 
+    background-position: 0px -152px;
+}
+
+#ICp10 { 
+    background-position: 0px -228px;
+}
+
+#ICp11 { 
+    background-position: 0px -608px;
+}
+
+#ICp12 { 
+    background-position: 0px -1520px;
+}
+
+#ICp13 { 
+    background-position: 0px -684px;
+}
+
+#ICp14 { 
+    background-position: 0px -6612px;
+}
+
+#ICp15 { 
+    background-position: 0px -7676px;
+}
+
+#ICp16 { 
+    background-position: 0px -7600px;
+}
+
+#ICp17 { 
+    background-position: 0px -7524px;
+}
+
+#ICp18 { 
+    background-position: 0px -6688px;
+}
+
+#ICp19 { 
+    background-position: 0px -7296px;
+}
+
+#ICp20 { 
+    background-position: 0px -7220px;
+}
+
+#ICp21 { 
+    background-position: 0px -7144px;
+}
+
+#ICp22 { 
+    background-position: 0px -6840px;
+}
+
+#OCup1 { 
+    background-position: 0px -608px;
+}
+
+#OCup2 { 
+    background-position: 0px -228px;
+}
+
+#OCup3 { 
+    background-position: 0px -379px;
+}
+
+#OCup4 { 
+    background-position: 0px -1672px;
+}
+
+#OCup5 { 
+    background-position: 0px -77px;
+}
+
+#OCup6 { 
+    background-position: 0px -532px;
+}
+
+#OCup7 { 
+    background-position: 0px -152px;
+}
+
+#OCup8 { 
+    background-position: 0px -228px;
+}
+
+#OCup9 { 
+    background-position: 0px -456px;
+}
+
+#OCup10 { 
+    background-position: 0px -608px;
+}
+
+#OCup11 { 
+    background-position: 0px -684px;
+}
+
+#OCup12 { 
+    background-position: 0px -6688px;
+}
+
+#OCup13 { 
+    background-position: 0px -7828px;
+}
+
+#OCup14 { 
+    background-position: 0px -7600px;
+}
+
+#OCup15 { 
+    background-position: 0px -7372px;
+}
+
+#OCup16 { 
+    background-position: 0px -7296px;
+}
+
+#OCup17 { 
+    background-position: 0px -7220px;
+}
+
+#OCup18 { 
+    background-position: 0px -7144px;
+}
+
+#ICup1 { 
+    background-position: 0px -608px;
+}
+
+#ICup2 { 
+    background-position: 0px -152px;
+}
+
+#ICup3 { 
+    background-position: 0px -76px;
+}
+
+#ICup4 { 
+    background-position: 0px -456px;
+}
+
+#ICup5 { 
+    background-position: 0px -608px;
+}
+
+#ICup6 { 
+    background-position: 0px -77px;
+}
+
+#ICup7 { 
+    background-position: 0px -228px;
+}
+
+#ICup8 { 
+    background-position: 0px -1672px;
+}
+
+#ICup9 { 
+    background-position: 0px -684px;
+}
+
+#ICup10 { 
+    background-position: 0px -532px;
+}
+
+#ICup11 { 
+    background-position: 0px -7828px;
+}
+
+#ICup12 { 
+    background-position: 0px -7600px;
+}
+
+#ICup13 { 
+    background-position: 0px -6536px;
+}
+
+#ICup14 { 
+    background-position: 0px -7372px;
+}
+
+#ICup15 { 
+    background-position: 0px -7524px;
+}
+
+#ICup16 { 
+    background-position: 0px -6612px;
+}
+
+#ICup17 { 
+    background-position: 0px -6840px;
+}
+
+#ICup18 { 
+    background-position: 0px -6992px;
+}
+
+#ICup19 { 
+    background-position: 0px -6840px;
+}
+
+#IPp1 { 
+    background-position: 0px -7752px;
+}
+
+#IPp2 { 
+    background-position: 0px -7448px;
+}
+
+#IPp3 { 
+    background-position: 0px -379px;
+}
+
+#IPp4 { 
+    background-position: 0px -456px;
+}
+
+#IPp5 { 
+    background-position: 0px -532px;
+}
+
+#IPp6 { 
+    background-position: 0px -1445px;
+}
+
+#IPp7 { 
+    background-position: 0px -1672px;
+}
+
+#IPp8 { 
+    background-position: 0px -77px;
+}
+
+#IPp9 { 
+    background-position: 0px -152px;
+}
+
+#IPp10 { 
+    background-position: 0px -1368px;
+}
+
+#IPp11 { 
+    background-position: 0px -228px;
+}
+
+#IPp12 { 
+    background-position: 0px -1520px;
+}
+
+#IPp13 { 
+    background-position: 0px -608px;
+}
+
+#IPp14 { 
+    background-position: 0px -684px;
+}
+
+#IPp15 { 
+    background-position: 0px -6612px;
+}
+
+#IPp16 { 
+    background-position: 0px -7676px;
+}
+
+#IPp17 { 
+    background-position: 0px -7600px;
+}
+
+#IPp18 { 
+    background-position: 0px -7524px;
+}
+
+#IPp19 { 
+    background-position: 0px -6688px;
+}
+
+#IPp20 { 
+    background-position: 0px -7296px;
+}
+
+#IPp21 { 
+    background-position: 0px -7220px;
+}
+
+#IPp22 { 
+    background-position: 0px -7144px;
+}
+
+#IPp23 { 
+    background-position: 0px -6840px;
 }
 
 #b1 {
@@ -250,6 +691,36 @@
     background-position: -2600px -0px;
 }
 
+#RR.cuffs {
+    background-position: -400px 0px;
+}
+
+#BA {
+    background-position: 0px 0px;
+}
+
+#SQ {
+    background-position: -500px 0px;
+}
+
+#BR {
+    background-position: -200px 0px;
+}
+
+#AA {
+    background-position: -100px 0px;
+}
+
+#FR {
+    background-position: -300px 0px;
+}
+
+.cuffs {
+    background-image: url("../icons/cuffs.jpg");
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
 .buttons {
     background-image: url("../icons/buttons.jpg");
     background-repeat: no-repeat;
@@ -280,7 +751,7 @@
     background-position: -99px 0;
 }
 
-#RR {
+#RR.collar-designs {
     background-position: -600px 0;
 }
 
@@ -371,9 +842,9 @@ ul {
 }
 
 li.fli {
-    height: 55px;
+    height: 67px;
     text-align: center;
-    line-height: 55px;
+    line-height: 67px;
     cursor: default;
 }
 
@@ -381,6 +852,9 @@ div {
     cursor: default;
 }
 
+.max-size {
+    max-width: 580px;
+}
 /* li:hover {
     color: white;
     background-color: cornflowerblue;

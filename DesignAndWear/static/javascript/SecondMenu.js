@@ -20,11 +20,11 @@ function getSecondMenuContent() {
                             <div>
                                 <h2>Customize Your Shirt's Style</h2>
                                 <ul class="fli">
-                                    <li class="fli" OnClick=ShowCollarStyles()><div id="collar-style-icon" class="sprite-icons sprite2"></div> COLLAR</li>
+                                    <li style="background-color: #F9FAFB;" class="fli" OnClick=ShowCollarStyles()><div id="collar-style-icon" class="sprite-icons sprite2"></div> COLLAR</li>
                                     <li class="fli" OnClick=ShowCuffStyles()><div id="cuff-style-icon" class="sprite-icons sprite2"></div> CUFF</li>
-                                    <li class="fli" OnClick=ShowPocket()><div id="pocket-icon" class="sprite-icons sprite2"></div> POCKET</li>
+                                    <li style="background-color: #F9FAFB;" class="fli" OnClick=ShowPocket()><div id="pocket-icon" class="sprite-icons sprite2"></div> POCKET</li>
                                     <li class="fli" OnClick=ShowShirtBack()><div id="shirt-back-icon" class="sprite-icons sprite2"></div> SHIRT BACK</li>
-                                    <li class="fli" OnClick=ShowBuutons()><div id="button-icon" class="sprite-icons sprite2"></div> BUTTON COLOUR</li>
+                                    <li style="background-color: #F9FAFB;" class="fli" OnClick=ShowBuutons()><div id="button-icon" class="sprite-icons sprite2"></div> BUTTON COLOUR</li>
                                     <li class="fli" OnClick=ShowMonogram()><div id="monogram-icon" class="sprite-icons sprite2"></div> MONOGRAM</li>
                                 </ul>
                             </div>
@@ -53,19 +53,20 @@ function ShowCollarStyles() {
     preserveImages();
     preserveDesignsPatterns();
     target = document.getElementById("content");
-    target.innerHTML = `
+    target.innerHTML = `<center>
                         <div>
-                            <div class="collar-designs" id="RR" onclick=loadOuterCollarDesign(event) style="height: 100px; width: 100px; margin-left: 7px;">REGULAR</div>
-                            <div class="collar-designs" id="SP" onclick=loadOuterCollarDesign(event) style="height: 100px; width: 100px; margin-left: 7px;">SHORT POINT</div>
-                            <div class="collar-designs" id="CA" onclick=loadOuterCollarDesign(event) style="height: 100px; width: 100px; margin-left: 7px;">CUT AWAY</div>
-                            <div class="collar-designs" id="BR" onclick=loadOuterCollarDesign(event) style="height: 100px; width: 100px; margin-left: 7px;">BIG ROUND</div>
-                            <div class="collar-designs" id="PH" onclick=loadOuterCollarDesign(event) style="height: 100px; width: 100px; margin-left: 7px;">PINHOLE</div>
-                            <div class="collar-designs" id="SW" onclick=loadOuterCollarDesign(event) style="height: 100px; width: 100px; margin-left: 7px;">SEMI WIDE</div>
-                            <div class="collar-designs" id="WS" onclick=loadOuterCollarDesign(event) style="height: 100px; width: 100px; margin-left: 7px;">WIDE SPREAD</div>
-                            <div class="collar-designs" id="SS" onclick=loadOuterCollarDesign(event) style="height: 100px; width: 100px; margin-left: 7px;">STAND</div>
-                            <div class="collar-designs" id="DB" onclick=loadOuterCollarDesign(event) style="height: 100px; width: 100px; margin-left: 7px;">DUAL BUTTON</div>
-                            <div class="collar-designs" id="RB" onclick=loadOuterCollarDesign(event) style="height: 100px; width: 100px; margin-left: 7px;">BUTTONED DOWN</div>
+                            <div class="collar-designs" id="RR" onclick=loadOuterCollarDesign(event) style="height: 100px; width: 100px; margin: 7px;">REGULAR</div>
+                            <div class="collar-designs" id="SP" onclick=loadOuterCollarDesign(event) style="height: 100px; width: 100px; margin: 7px;">SHORT POINT</div>
+                            <div class="collar-designs" id="CA" onclick=loadOuterCollarDesign(event) style="height: 100px; width: 100px; margin: 7px;">CUT AWAY</div>
+                            <div class="collar-designs" id="BR" onclick=loadOuterCollarDesign(event) style="height: 100px; width: 100px; margin: 7px;">BIG ROUND</div>
+                            <div class="collar-designs" id="PH" onclick=loadOuterCollarDesign(event) style="height: 100px; width: 100px; margin: 7px;">PINHOLE</div>
+                            <div class="collar-designs" id="SW" onclick=loadOuterCollarDesign(event) style="height: 100px; width: 100px; margin: 7px;">SEMI WIDE</div>
+                            <div class="collar-designs" id="WS" onclick=loadOuterCollarDesign(event) style="height: 100px; width: 100px; margin: 7px;">WIDE SPREAD</div>
+                            <div class="collar-designs" id="SS" onclick=loadOuterCollarDesign(event) style="height: 100px; width: 100px; margin: 7px;">STAND</div>
+                            <div class="collar-designs" id="DB" onclick=loadOuterCollarDesign(event) style="height: 100px; width: 100px; margin: 7px;">DUAL BUTTON</div>
+                            <div class="collar-designs" id="RB" onclick=loadOuterCollarDesign(event) style="height: 100px; width: 100px; margin: 7px;">BUTTONED DOWN</div>
                         </div>
+                        </center>
                         `;
     var btnDiv = document.createElement("div");
     btnDiv.id = "btns_div";
@@ -86,15 +87,16 @@ function ShowCuffStyles() {
     preserveImages();
     preserveDesignsPatterns();
     target = document.getElementById("content");
-    target.innerHTML = `
+    target.innerHTML = `<center>
                         <div>
-                            <div class="fabric" id="RR" onclick=loadOuterCuffDesign(event) style="height: 40px; width: 90px; display: inline-block; margin-left: 7px; background-color: red;">ROUND</div>
-                            <div class="fabric" id="BA" onclick=loadOuterCuffDesign(event) style="height: 40px; width: 90px; display: inline-block; margin-left: 7px; background-color: green;">BIG ANGLE</div>
-                            <div class="fabric" id="SQ" onclick=loadOuterCuffDesign(event) style="height: 40px; width: 90px; display: inline-block; margin-left: 7px; background-color: blue;">SQUARE</div>
-                            <div class="fabric" id="BR" onclick=loadOuterCuffDesign(event) style="height: 40px; width: 90px; display: inline-block; margin-left: 7px; background-color: yellow;">BIG ROUND</div>
-                            <div class="fabric" id="AA" onclick=loadOuterCuffDesign(event) style="height: 40px; width: 90px; display: inline-block; margin-left: 7px; background-color: yellow;">ANGLE</div>
-                            <div class="fabric" id="FR" onclick=loadOuterCuffDesign(event) style="height: 40px; width: 90px; display: inline-block; margin-left: 7px; background-color: yellow;">FRENCH</div>
+                            <div class="cuffs" id="RR" onclick=loadOuterCuffDesign(event) style="height: 100px; width: 100px; display: inline-block; margin: 7px;"></div>
+                            <div class="cuffs" id="BA" onclick=loadOuterCuffDesign(event) style="height: 100px; width: 100px; display: inline-block; margin: 7px;"></div>
+                            <div class="cuffs" id="SQ" onclick=loadOuterCuffDesign(event) style="height: 100px; width: 100px; display: inline-block; margin: 7px;"></div>
+                            <div class="cuffs" id="BR" onclick=loadOuterCuffDesign(event) style="height: 100px; width: 100px; display: inline-block; margin: 7px;"></div>
+                            <div class="cuffs" id="AA" onclick=loadOuterCuffDesign(event) style="height: 100px; width: 100px; display: inline-block; margin: 7px;"></div>
+                            <div class="cuffs" id="FR" onclick=loadOuterCuffDesign(event) style="height: 100px; width: 100px; display: inline-block; margin: 7px;"></div>
                         </div>
+                        </center>
                         `;
     var btnDiv = document.createElement("div");
     btnDiv.id = "btns_div";

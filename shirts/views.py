@@ -24,6 +24,7 @@ def design(request):
     inner_cuff = pattern.inner_cuff.all().filter(catagory="RR", opened=False).first()
     outer_cuff = pattern.outer_cuff.all().filter(catagory="RR", opened=False).first()
     base_button = BaseButton.objects.get(color="b1")
+    pocket = pattern.pocket.all().filter(visible=False).first()
     collar_button = CollarButton.objects.all().filter(color="b1", catagory="RR", opened=False).first()
     button_holes = CollarButton.objects.all().filter(color="b1", catagory="RR", opened=True).first()
     cuff_button = CuffButton.objects.all().filter(color="b1", catagory="RR", opened=False).first()
@@ -42,6 +43,7 @@ def design(request):
             "button_holes": button_holes,
             "cuff_button": cuff_button
         },
+        "pocket": pocket,
         "outer_cuff": outer_cuff,
         "inner_cuff": inner_cuff,
     }
@@ -112,7 +114,7 @@ def get_outer_collar_design(request):
     outer_collar = pattern.outer_collar.all().filter(catagory=catagory, opened=False).first()
     inner_collar = icollar_pattern.inner_collar.all().filter(catagory=catagory, opened=False).first()
     if catagory == "PH":
-        button_holes = CollarButton.objects.all().filter(color=request.GET.get('button'), catagory=catagory, opened=False).first()
+        button_holes = CollarButton.objects.all().filter(color="b1", catagory=catagory, opened=False).first()
     else:
         button_holes = CollarButton.objects.all().filter(color="b1", catagory="RR", opened=True).first()
     if catagory not in ["DB", "RB"]:

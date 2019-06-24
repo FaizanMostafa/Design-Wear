@@ -11,15 +11,16 @@ html, body{
 }
 .box:before{
 	content: "";
-	display: block;
-	padding-top: 112%; 	/* initial ratio of 1:1*/
+  display: block;
+  height: 100%;
+	padding-top: 112%; 	/*initial ratio of 1:1 */
 }
 .content{
 	position:  absolute;
 	top: 0;
 	left: 0;
 	bottom: 0;
-	right: 0;
+  right: 0;
 }
 .img-div {
   position: absolute;
@@ -41,4 +42,44 @@ html, body{
 
 #listContainer {
   height: 75vh;
+}
+
+footer a {
+  text-decoration: none;
+  color: white;
+}
+
+footer a:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.navbar {
+  background-color: #F5F5F5;
+}
+
+nav {
+  padding: 0px !important;
+  margin: 0px !important;
+}
+
+nav a {
+  color: #007BFF !important;
+  font-size: 1.2em;
+  font-weight: 500;
+  line-height: 61px;
+}
+
+nav a:hover {
+  color: white !important;
+}
+
+ul.navbar-nav li a:link {
+  margin-left: 13px;
+  margin-right: 13px;
+  line-height: 61px; 
+}
+
+nav li:hover {
+  background-color: #007BFF !important;
 }

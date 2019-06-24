@@ -1,10 +1,123 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
-    Design&Wear
+    Design&amp;Wear
 {% endblock title %}
 
 
 {% block content %}
-    HomePage
+    <div class="container-fluid">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" style="height: 650px" src="{% static 'bg_imgs/slider1.jpg' %}" alt="First slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 style="font-size: 2.0em">Shop Our Sale</h5>
+                        <p style="font-size: 1.5em">Get ready for the Fall season and take 20% off all purchases. Use code OS20P1. Order 3 or more shirts and take 30% off. Use code OS30.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" style="height: 650px" src="{% static 'bg_imgs/slider2.jpg' %}" alt="Second slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 style="font-size: 2.0em">Wear Your Story</h5>
+                        <p style="font-size: 1.5em">The pursuit of a better wardrobe staple begins with you in mind. From expressive fabrics to hand-stitched buttons, each aspect of an Design Wear shirt is designed by you to help share your story with the world.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" style="height: 650px" src="{% static 'bg_imgs/slider3.jpg' %}" alt="Third slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 style="font-size: 2.0em">Shop New Arrivals</h5>
+                        <p style="font-size: 1.5em">Upgrade your wardrobe with made to measure shirting from Design Wear. Vivid solids and fresh patterns keep you looking right while the living's easy.</p>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                {% comment %} <span class="carousel-control-prev-icon" aria-hidden="true"></span> {% endcomment %}
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                {% comment %} <span class="carousel-control-next-icon" aria-hidden="true"></span> {% endcomment %}
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <div class="col" style="margin:20px 0px;">
+            <div class="row col-12">
+                <h3 class="text-center col-12" style="padding: 14px 0px; margin-top: 40px">Style Guide</h3>
+            </div>
+            <div class="row col-12">
+                <p class="text-center col-12"  style="font-size:1.2em; margin-bottom:30px">Browse our shirts by style. Ready to wear, or customize using our builder to create a shirt that is uniquely for you.</p>
+            </div>
+            <div class="row col-12" style="margin:0px; padding:0px">
+                <div class="col-lg-3 col-md-6 col-sm-12" style="margin:0px; padding:0px">
+                    <img style="width: 337px;" src="{% static 'bg_imgs/classic.jpg' %}" alt="classic">
+                    <h3 class="text-center" style="padding: 14px 0px">Classic</h3>
+                    <p class="text-center" style="font-size:1.2em">Designs that stand the test of time.</p>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12" style="margin:0px; padding:0px">
+                    <img style="width: 337px" src="{% static 'bg_imgs/casual.jpg' %}" alt="casual">
+                    <h3 class="text-center" style="padding: 14px 0px">Casual</h3>
+                    <p class="text-center" style="font-size:1.2em">Look sharp, even on your days off.</p>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12" style="margin:0px; padding:0px">
+                    <img style="width: 337px" src="{% static 'bg_imgs/minimalist.jpg' %}" alt="minimalist">
+                    <h3 class="text-center" style="padding: 14px 0px">Minimalist</h3>
+                    <p class="text-center" style="font-size:1.2em">Keeping it simple doesn't have to look basic.</p>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12" style="margin:0px; padding:0px">
+                    <img style="width: 337px" src="{% static 'bg_imgs/sophisticated.jpg' %}" alt="sophisticated">
+                    <h3 class="text-center" style="padding: 14px 0px">Sopisticated</h3>
+                    <p class="text-center" style="font-size:1.2em">Business staples with custom style and fit.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col" style="margin:20px 0px;">
+            <div class="row col-12">
+                <h3 class="text-center col-12" style="padding: 14px 0px; margin-top: 40px">New Arrivals</h3>
+            </div>
+            <div class="row col-12">
+                <p class="text-center col-12"  style="font-size:1.2em; margin-bottom:30px">Checkout new arrivals. That are ready to wear, or customizeable accornding to your needs.</p>
+            </div>
+            <div class="row col-12" style="margin:0px; padding:0px">
+                {% for shirt in shirts %}
+                    <div class="col-lg-3 col-md-6 col-sm-12" style="margin:0px; padding:0px">
+                        <div class="col my-auto" style="padding:0em 0.25em 0em 0em;">
+                            <div class="box container-div col">
+                                <div class="content">
+                                    <img class="img-div index2" src="{{ shirt.outer_collar.outer_r.url }}" alt="OuterCollerLeft">
+                                    <img class="img-div index2" src="{{ shirt.outer_collar.outer_l.url }}" alt="OuterCollerRight">
+                                    <img class="img-div index1" src="{{ shirt.outer_collar.upper.url }}" alt="UpperColler">
+                                    <img class="img-div index1" src="{{ shirt.inner_collar.inner.url }}" alt="InnerColler">
+                                    <img class="img-div index0" src="{{ shirt.yoke.top.url }}" alt="YokeTop">
+                                    <img class="img-div index0" src="{{ shirt.yoke.bottom.url }}" alt="YokeBottom">
+                                    <img class="img-div index1" src="{{ shirt.collar_base.l_base.url }}" alt="CollarLeftBase">
+                                    <img class="img-div index0" src="{{ shirt.collar_base.r_base.url }}" alt="CollarRightBase">
+                                    <img class="img-div index1" src="{{ shirt.base.r_shoulder.url }}" alt="UpperRightShoulder">
+                                    <img class="img-div index1" src="{{ shirt.base.l_shoulder.url }}" alt="UpperLeftShoulder">
+                                    <img class="img-div index1" src="{{ shirt.base.r_front.url }}" alt="RightFront">
+                                    <img class="img-div index1" src="{{ shirt.base.l_front.url }}" alt="LeftFront">
+                                    <img class="img-div index0" src="{{ background.url }}" alt="Background">
+                                    <img class="img-div index2" src="{{ shirt.outer_placket.outer.url }}" alt="OuterPlacket">
+                                    <img class="img-div index2" src="{{ shirt.outer_cuff.top.url }}" alt="UpperCuff">
+                                    <img class="img-div index2" src="{{ shirt.outer_cuff.bottom.url }}" alt="LowerCuff">
+                                    <img class="img-div index2" src="{{ shirt.inner_cuff.inner.url }}" alt="InnerCuff">
+                                    <img class="img-div index2" src="{{ shirt.pocket.pocket.url }}" alt="Pocket">
+                                    <img class="img-div index2" src="{{ shirt.base_button.button.url }}" alt="BaseButton">
+                                    <img class="img-div index2" src="{{ shirt.cuff_button.button.url }}" alt="CuffButton">
+                                    <img class="img-div index2" src="{{ shirt.collar_button.button.url }}" alt="CollarButton">
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="text-center" style="padding: 0px 0px 14px 0px">Classic</h3>
+                        <p class="text-center" style="font-size:1.2em; color: #007BFF;">${{shirt.price}}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 {% endblock content %}

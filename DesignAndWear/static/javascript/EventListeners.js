@@ -317,6 +317,8 @@ function postShirtSpecs() {
     document.getElementById("cuffDesign").value = cuffDesign;
     document.getElementById("innerPlacketPattern").value = innerPlacketPattern;
     document.getElementById("outerPlacketPattern").value = outerPlacketPattern;
+    document.getElementById("button").value = buttonColor;
+    document.getElementById("pocketLeft").value = pocket;
     form = document.getElementById('shirtSpecsForm');
     form.submit();
 }

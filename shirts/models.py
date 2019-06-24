@@ -188,8 +188,10 @@ class Shirt(models.Model):
     inner_placket = models.ForeignKey(InnerPlacket, related_name="inner_placket", on_delete=models.CASCADE)
     outer_cuff = models.ForeignKey(OuterCuff, related_name="outer_cuff", on_delete=models.CASCADE)
     inner_cuff = models.ForeignKey(InnerCuff, related_name="inner_cuff", on_delete=models.CASCADE)
-    # pocket = models.ForeignKey(Pocket, related_name="pocket", on_delete=models.CASCADE)
-    # button = models.ForeignKey(Button, related_name="button", on_delete=models.CASCADE)
+    pocket = models.ForeignKey(Pocket, related_name="left_pocket", on_delete=models.CASCADE)
+    base_button = models.ForeignKey(BaseButton, related_name="base_button", on_delete=models.CASCADE)
+    cuff_button = models.ForeignKey(CuffButton, related_name="cuff_button", on_delete=models.CASCADE)
+    collar_button = models.ForeignKey(CollarButton, related_name="collar_button", on_delete=models.CASCADE)
     CATAGORY_CHOICES = (
         ('SP', 'Side Pleats'),
         ('BP', 'Box Pleats'),
