@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    LogIn
+{% endblock title %}
+
+{% block content %}
+    <div style="margin: 75px 0px 0px 0px;background: rgb(2,0,36);
+background: linear-gradient(135deg, rgba(2,0,36,1) 0%, rgba(7,96,255,0.6786064767703957) 0%, rgba(219,54,213,0.9054972330729166) 67%);" class="bg_cover">
+        <form class="text-center col-md-5" method="POST" enctype="multipart/form-data">
+            <p class="h4 mb-4">Login</p>
+            {% csrf_token %}
+            {{ form.username }}
+            {{ form.password }}
+            <button class="btn-block btn btn-primary my-4" type="submit">Login</button>
+        </form>
+    </div>
+{% endblock content %}

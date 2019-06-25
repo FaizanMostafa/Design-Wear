@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.utils.translation import ugettext_lazy as _
 from PIL import Image
+from datetime import datetime
 
 # Create your models here.
 
@@ -24,6 +25,7 @@ class UserManager(BaseUserManager):
         """Create and save a regular User with the given email and password."""
         extra_fields.setdefault('is_staff', False)
         extra_fields.setdefault('is_superuser', False)
+        extra_fields.setdefault('username', email)
         return self._create_user(email, password, **extra_fields)
 
     def create_superuser(self, email, password, **extra_fields):
@@ -41,7 +43,7 @@ class UserManager(BaseUserManager):
 class User(AbstractUser):
     first_name = models.CharField(_("First Name"), max_length=32)
     last_name = models.CharField(_("Last Name"), max_length=32)
-    email = models.EmailField(_("Email"), max_length=254, unique=True)
+    email = models.EmailField(_("Email"), max_length=254, unique=True, default="")
     age = models.PositiveSmallIntegerField(_("Age"))
     height = models.PositiveSmallIntegerField(_("Height"))
     join_date = models.DateTimeField(_("Join Date"), auto_now_add=True)

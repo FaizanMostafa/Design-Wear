@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from . models import Address
 from payment.views import payment_process
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+@login_required
 def create_or_update_address(request):
     if request.method == 'POST':
         address = Address.objects.all().filter(user=request.user).first()
@@ -43,11 +45,13 @@ def create_or_update_address(request):
         address = Address.objects.all().filter(user=request.user).first()
     return address
 
+@login_required
 def get_payment_address(request):
     address = create_or_update_address(request)
     form = payment_process(request)
     return render(request, 'shipments/addresspayment.html', {'address':address, 'form':form})
 
+@login_required
 def get_address(request):
     address = create_or_update_address(request)
     return render(request, 'shipments/address.html', {'address':address})

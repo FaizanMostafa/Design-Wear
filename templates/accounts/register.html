@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    SignUp
+{% endblock title %}
+
+{% block content %}
+    <div style="margin: 75px 0px 0px 0px; background: rgb(2,0,36);
+background: linear-gradient(338deg, rgba(2,0,36,1) 0%, rgba(7,96,255,0.6786064767703957) 0%, rgba(219,54,213,0.9054972330729166) 67%);" class="bg_cover">
+        <form class="text-center col-md-5" method="POST" enctype="multipart/form-data">
+            <p class="h4 mb-4">SignUp</p>
+            {% csrf_token %}
+            <div class="form-row mb-4">
+                <div class="col">
+                    {{ form.first_name }}
+                </div>
+                <div class="col">
+                    {{ form.last_name }}
+                </div>
+            </div>
+            {{ form.email }}
+            <div class="form-row mb-4">
+                <div class="col">
+                    {{ form.age }}
+                </div>
+                <div class="col">
+                    {{ form.height }}
+                </div>
+            </div>
+            {{ form.avatar }}
+            {{ form.password1 }}
+            {{ form.password2 }}
+            <button class="btn-block btn btn-primary my-4" type="submit">Sign up</button>
+        </form>
+    </div>
+{% endblock content %}
